@@ -8,6 +8,7 @@ class Users{
     private $isAlumni = false;
     private $isStudent = false;
     private $isCompany = false;
+    private $isFaculty = false;
     //Array of user posts
     private $posts = array();
     //Array pf users following this user
@@ -15,7 +16,7 @@ class Users{
     //Array of users following
     private $following = array();
 
-    function __construct($username,$email,$password,$bio,$isAlumni,$isStudent,$isCompany){
+    function __construct($username,$email,$password,$bio,$isAlumni,$isStudent,$isCompany,$isFaculty){
         $this->username = $username;
         $this->email = $email;
         $this->password = $password;
@@ -23,6 +24,7 @@ class Users{
         $this->isAlumni = $isAlumni;
         $this->isStudent = $isStudent;
         $this->isCompany = $isCompany;
+        $this->isFaculty = $isFaculty;
     }
 
 
@@ -46,6 +48,9 @@ class Users{
     }
     function get_Company(){
         return $this->isCompany;
+    }
+    function get_Faculty(){
+        return $this->isFaculty;
     }
     function get_Posts(){
         return $this->posts;
