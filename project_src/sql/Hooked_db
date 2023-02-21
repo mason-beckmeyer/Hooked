@@ -1,0 +1,24 @@
+CREATE TABLE IF NOT EXISTS `Hooked`.`Post` (
+    `postID` INT NOT NULL AUTO_INCREMENT,
+    `postText` VARCHAR(255),
+    `postPicURL` VARCHAR(45),
+    `dateOfPost` DATETIME,
+    PRIMARY KEY (`postID`)
+);
+
+CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
+  `userID` INT NOT NULL AUTO_INCREMENT,
+  `userEmail` VARCHAR(45),
+  `userPassword` VARCHAR(45),
+  `userBio` VARCHAR(255),
+  `userPosts` JSON,
+  `userFollowers` JSON,
+  `userFollowing` JSON,
+  `isAlumni` TINYINT,
+  `isCompany` TINYINT,
+  `isStudent` TINYINT,
+  `isFaculty` TINYINT,
+  PRIMARY KEY (`userID`)
+  );
+
+
