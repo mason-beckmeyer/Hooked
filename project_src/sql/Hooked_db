@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS `Hooked`.`Post` (
-    `postID` INT NOT NULL AUTO_INCREMENT,
+    `postID` INT AUTO_INCREMENT,
     `postText` VARCHAR(255),
     `postPicURL` VARCHAR(45),
     `dateOfPost` DATETIME,
@@ -7,18 +7,33 @@ CREATE TABLE IF NOT EXISTS `Hooked`.`Post` (
 );
 
 CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
-  `userID` INT NOT NULL AUTO_INCREMENT,
+  `userID` INT AUTO_INCREMENT,
   `userEmail` VARCHAR(45),
   `userPassword` VARCHAR(45),
   `userBio` VARCHAR(255),
-  `userPosts` JSON,
-  `userFollowers` JSON,
-  `userFollowing` JSON,
   `isAlumni` TINYINT,
   `isCompany` TINYINT,
   `isStudent` TINYINT,
   `isFaculty` TINYINT,
   PRIMARY KEY (`userID`)
+  );
+
+  CREATE TABLE IF NOT EXISTS `Hooked`.`Follows` (
+  `followerID` INT,
+  `followeeID` INT,
+  PRIMARY KEY (`followerID`, `followeeID`),
+  INDEX `fk_Followee_User1_idx` (`followerID` ASC) VISIBLE,
+  INDEX `fk_Followee_User2_idx` (`followeeID` ASC) VISIBLE,
+  CONSTRAINT `fk_Followee_User1`
+    FOREIGN KEY (`followerID`)
+    REFERENCES `mydb`.`User` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Followee_User2`
+    FOREIGN KEY (`followeeID`)
+    REFERENCES `mydb`.`User` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
   );
 
 
