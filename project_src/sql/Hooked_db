@@ -1,26 +1,34 @@
 CREATE TABLE IF NOT EXISTS `Hooked`.`Post` (
-    `postID` INT AUTO_INCREMENT,
-    `postText` VARCHAR(255),
-    `postPicURL` VARCHAR(45),
-    `dateOfPost` DATETIME,
-    PRIMARY KEY (`postID`)
+  `postID` INT NOT NULL AUTO_INCREMENT,
+  `postText` VARCHAR(255) NULL,
+  `postPicURL` VARCHAR(45) NULL,
+  `dateOfPost` DATETIME NOT NULL,
+  `User_userID` INT NOT NULL,
+  PRIMARY KEY (`postID`, `User_userID`),
+  UNIQUE INDEX `postPicURL_UNIQUE` (`postPicURL` ASC) VISIBLE,
+  INDEX `fk_Post_User_idx` (`User_userID` ASC) VISIBLE,
+  CONSTRAINT `fk_Post_User`
+    FOREIGN KEY (`User_userID`)
+    REFERENCES `mydb`.`User` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 );
 
 CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
-  `userID` INT AUTO_INCREMENT,
-  `userEmail` VARCHAR(45),
-  `userPassword` VARCHAR(45),
-  `userBio` VARCHAR(255),
-  `isAlumni` TINYINT,
-  `isCompany` TINYINT,
-  `isStudent` TINYINT,
-  `isFaculty` TINYINT,
+  `userID` INT NOT NULL,
+  `userEmail` VARCHAR(45) NULL,
+  `userPassword` VARCHAR(45) NULL,
+  `userBio` VARCHAR(255) NULL,
+  `isAlumni` TINYINT NULL,
+  `isCompany` TINYINT NULL,
+  `isStudent` TINYINT NULL,
+  `isFaculty` TINYINT NULL,
   PRIMARY KEY (`userID`)
   );
 
-  CREATE TABLE IF NOT EXISTS `Hooked`.`Follows` (
-  `followerID` INT,
-  `followeeID` INT,
+ CREATE TABLE IF NOT EXISTS `Hooked`.`Follows` (
+  `followerID` INT NOT NULL,
+  `followeeID` INT NOT NULL,
   PRIMARY KEY (`followerID`, `followeeID`),
   INDEX `fk_Followee_User1_idx` (`followerID` ASC) VISIBLE,
   INDEX `fk_Followee_User2_idx` (`followeeID` ASC) VISIBLE,
@@ -34,6 +42,5 @@ CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
     REFERENCES `mydb`.`User` (`userID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
-  );
-
+    );
 
