@@ -5,14 +5,14 @@ CREATE TABLE IF NOT EXISTS `Hooked`.`Post` (
   `dateOfPost` DATETIME NOT NULL,
   `User_userID` INT NOT NULL,
   PRIMARY KEY (`postID`, `User_userID`),
-  UNIQUE INDEX `postPicURL_UNIQUE` (`postPicURL` ASC) VISIBLE,
-  INDEX `fk_Post_User_idx` (`User_userID` ASC) VISIBLE,
+  UNIQUE INDEX `postPicURL_UNIQUE` (`postPicURL` ASC) ,
+  INDEX `fk_Post_User_idx` (`User_userID` ASC) ,
   CONSTRAINT `fk_Post_User`
     FOREIGN KEY (`User_userID`)
     REFERENCES `mydb`.`User` (`userID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-);
+;
 
 CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
   `userID` INT NOT NULL,
@@ -30,8 +30,8 @@ CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
   `followerID` INT NOT NULL,
   `followeeID` INT NOT NULL,
   PRIMARY KEY (`followerID`, `followeeID`),
-  INDEX `fk_Followee_User1_idx` (`followerID` ASC) VISIBLE,
-  INDEX `fk_Followee_User2_idx` (`followeeID` ASC) VISIBLE,
+  INDEX `fk_Followee_User1_idx` (`followerID` ASC) ,
+  INDEX `fk_Followee_User2_idx` (`followeeID` ASC) ,
   CONSTRAINT `fk_Followee_User1`
     FOREIGN KEY (`followerID`)
     REFERENCES `mydb`.`User` (`userID`)
