@@ -10,11 +10,12 @@ class Users{
     private $isCompany = false;
     private $isFaculty = false;
     //Array of user posts
-    private $posts = array();
+    //We decided to do these queries when we view followers page
+    //private $posts = array();
     //Array pf users following this user
-    private $followers = array();
+    //private $followers = array();
     //Array of users following
-    private $following = array();
+    //private $following = array();
 
     function __construct($username,$email,$password,$bio,$isAlumni,$isStudent,$isCompany,$isFaculty){
         $this->username = $username;
@@ -70,6 +71,11 @@ class Users{
     }
     function add_following($user){
         array_push($this->following,$user);
+    }
+
+    function user_login(){
+        
+
     }
 
 
