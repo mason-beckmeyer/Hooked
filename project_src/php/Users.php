@@ -73,6 +73,11 @@ class Users{
         array_push($this->following,$user);
     }
 
+    function user_login(){
+        
+
+    }
+
 
 }
 
