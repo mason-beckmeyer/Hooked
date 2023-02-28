@@ -1,20 +1,4 @@
-CREATE TABLE IF NOT EXISTS `Hooked`.`Post` (
-  `postID` INT NOT NULL AUTO_INCREMENT,
-  `postText` VARCHAR(255) NULL,
-  `postPicURL` VARCHAR(45) NULL,
-  `dateOfPost` DATETIME NOT NULL,
-  `User_userID` INT NOT NULL,
-  PRIMARY KEY (`postID`, `User_userID`),
-  UNIQUE INDEX `postPicURL_UNIQUE` (`postPicURL` ASC) ,
-  INDEX `fk_Post_User_idx` (`User_userID` ASC) ,
-  CONSTRAINT `fk_Post_User`
-    FOREIGN KEY (`User_userID`)
-    REFERENCES `mydb`.`User` (`userID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-;
-
-CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
+CREATE TABLE IF NOT EXISTS `hooked_db`.`User` (
   `userID` INT NOT NULL,
   `userEmail` VARCHAR(45) NULL,
   `userPassword` VARCHAR(45) NULL,
@@ -26,7 +10,25 @@ CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
   PRIMARY KEY (`userID`)
   );
 
- CREATE TABLE IF NOT EXISTS `Hooked`.`Follows` (
+CREATE TABLE IF NOT EXISTS `hooked_db`.`Post` (
+  `postID` INT NOT NULL AUTO_INCREMENT,
+  `postText` VARCHAR(255) NULL,
+  `postPicURL` VARCHAR(45) NULL,
+  `dateOfPost` DATETIME NOT NULL,
+  `User_userID` INT NOT NULL,
+  PRIMARY KEY (`postID`, `User_userID`),
+  UNIQUE INDEX `postPicURL_UNIQUE` (`postPicURL` ASC) ,
+  INDEX `fk_Post_User_idx` (`User_userID` ASC) ,
+  CONSTRAINT `fk_Post_User`
+    FOREIGN KEY (`User_userID`)
+    REFERENCES `hooked_db`.`User` (`userID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+;
+
+
+
+ CREATE TABLE IF NOT EXISTS `hooked_db`.`Follows` (
   `followerID` INT NOT NULL,
   `followeeID` INT NOT NULL,
   PRIMARY KEY (`followerID`, `followeeID`),
@@ -34,12 +36,12 @@ CREATE TABLE IF NOT EXISTS `Hooked`.`User` (
   INDEX `fk_Followee_User2_idx` (`followeeID` ASC) ,
   CONSTRAINT `fk_Followee_User1`
     FOREIGN KEY (`followerID`)
-    REFERENCES `mydb`.`User` (`userID`)
+    REFERENCES `hooked_db`.`User` (`userID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Followee_User2`
     FOREIGN KEY (`followeeID`)
-    REFERENCES `mydb`.`User` (`userID`)
+    REFERENCES `hooked_db`.`User` (`userID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
     );
