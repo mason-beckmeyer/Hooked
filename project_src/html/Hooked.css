@@ -39,7 +39,7 @@ nav ul li {text-decoration: none;
 		}
 
 nav a {text-decoration: none;
-		color: gold;
+		color: blue;
 		text-align: center;
 	position: relative;
 	}
@@ -83,6 +83,7 @@ footer { font-size: small;
 		
 			height: 100px;
 			width: 450px;
+			
 			/*border:  5px solid blue;*/
 			overflow: hidden;
 			background-repeat: no-repeat;
