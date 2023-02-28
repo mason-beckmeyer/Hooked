@@ -33,14 +33,18 @@ nav ul 	{display: flex; flex-flow:row nowrap;
 		justify-content: space-around;
 		list-style-type: none;
 		font-size: 1.3em;
+		
 		}
 nav ul li {text-decoration: none;
-		color: gold
+		color: gold;
+		text-align: center;
 		}
 
 nav a {text-decoration: none;
 		color: blue;
-		text-align: center;
+		/* text-align: center; */
+		display: inline-block;
+	
 	position: relative;
 
 	}
@@ -56,6 +60,7 @@ nav ul ul {position: absolute;
 			}
 nav ul ul li a {display: block;
 				border-bottom: 1px solid #000000;
+				
 
 				}
 
