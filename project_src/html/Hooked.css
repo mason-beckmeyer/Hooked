@@ -42,6 +42,7 @@ nav a {text-decoration: none;
 		color: blue;
 		text-align: center;
 	position: relative;
+
 	}
 nav ul {background-color: silver;}
 
@@ -78,9 +79,11 @@ footer { font-size: small;
 }
 
 
-#logo {background-image: url(hookedlogo.jpeg);
+#logo {background: url(hookedlogo.jpeg);
+	
+	
 		
-		
+			
 			height: 100px;
 			width: 450px;
 			
@@ -88,7 +91,7 @@ footer { font-size: small;
 			overflow: hidden;
 			background-repeat: no-repeat;
 			background-size: 100% 110%;
-			/*margin: 2em;*/
+			margin: 1em;
 			margin: left;
 
 
