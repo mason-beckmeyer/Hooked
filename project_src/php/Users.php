@@ -53,25 +53,11 @@ class Users{
     function get_Faculty(){
         return $this->isFaculty;
     }
-    function get_Posts(){
-        return $this->posts;
-    }
-    function get_Followers(){
-        return $this->followers;
-    }
-    function get_Following(){
-        return $this->following;
-    }
+    
 
-    function add_Posts($post){
-        array_push($this->posts,$post);
-    }
-    function add_follower($user){
-        array_push($this->followers,$user);
-    }
-    function add_following($user){
-        array_push($this->following,$user);
-    }
+    
+    
+    
 
     function user_login(){
         
