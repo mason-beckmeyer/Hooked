@@ -33,15 +33,20 @@ nav ul 	{display: flex; flex-flow:row nowrap;
 		justify-content: space-around;
 		list-style-type: none;
 		font-size: 1.3em;
+		
 		}
 nav ul li {text-decoration: none;
-		color: gold
+		color: gold;
+		text-align: center;
 		}
 
 nav a {text-decoration: none;
-		color: gold;
-		text-align: center;
+		color: blue;
+		/* text-align: center; */
+		display: inline-block;
+	
 	position: relative;
+
 	}
 nav ul {background-color: silver;}
 
@@ -55,6 +60,7 @@ nav ul ul {position: absolute;
 			}
 nav ul ul li a {display: block;
 				border-bottom: 1px solid #000000;
+				
 
 				}
 
@@ -78,16 +84,19 @@ footer { font-size: small;
 }
 
 
-#logo {background-image: url(hookedlogo.jpeg);
+#logo {background: url(hookedlogo.jpeg);
+	
+	
 		
-		
+			
 			height: 100px;
 			width: 450px;
+			
 			/*border:  5px solid blue;*/
 			overflow: hidden;
 			background-repeat: no-repeat;
 			background-size: 100% 110%;
-			/*margin: 2em;*/
+			margin: 1em;
 			margin: left;
 
 
