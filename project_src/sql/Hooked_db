@@ -1,19 +1,19 @@
 CREATE TABLE IF NOT EXISTS `hooked_db`.`User` (
   `userID` INT NOT NULL,
-  `userEmail` VARCHAR(45) NULL,
-  `userPassword` VARCHAR(45) NULL,
-  `userBio` VARCHAR(255) NULL,
-  `isAlumni` TINYINT NULL,
-  `isCompany` TINYINT NULL,
-  `isStudent` TINYINT NULL,
-  `isFaculty` TINYINT NULL,
+  `userEmail` VARCHAR(45) ,
+  `userPassword` VARCHAR(45) ,
+  `userBio` VARCHAR(255) ,
+  `isAlumni` TINYINT ,
+  `isCompany` TINYINT ,
+  `isStudent` TINYINT ,
+  `isFaculty` TINYINT ,
   PRIMARY KEY (`userID`)
   );
 
 CREATE TABLE IF NOT EXISTS `hooked_db`.`Post` (
   `postID` INT NOT NULL AUTO_INCREMENT,
-  `postText` VARCHAR(255) NULL,
-  `postPicURL` VARCHAR(45) NULL,
+  `postText` VARCHAR(255) ,
+  `postPicURL` VARCHAR(45) ,
   `dateOfPost` DATETIME NOT NULL,
   `User_userID` INT NOT NULL,
   PRIMARY KEY (`postID`, `User_userID`),
@@ -22,9 +22,7 @@ CREATE TABLE IF NOT EXISTS `hooked_db`.`Post` (
   CONSTRAINT `fk_Post_User`
     FOREIGN KEY (`User_userID`)
     REFERENCES `hooked_db`.`User` (`userID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-;
+    );
 
 
 
@@ -37,12 +35,8 @@ CREATE TABLE IF NOT EXISTS `hooked_db`.`Post` (
   CONSTRAINT `fk_Followee_User1`
     FOREIGN KEY (`followerID`)
     REFERENCES `hooked_db`.`User` (`userID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_Followee_User2`
     FOREIGN KEY (`followeeID`)
     REFERENCES `hooked_db`.`User` (`userID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION
     );
 
