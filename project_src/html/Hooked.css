@@ -32,7 +32,7 @@ h6{color: green;
 nav ul 	{display: flex; flex-flow:row nowrap;
 		justify-content: space-around;
 		list-style-type: none;
-		font-size: 1.3em;
+		font-size: 1.5em;
 		
 		}
 nav ul li {text-decoration: none;
@@ -43,16 +43,20 @@ nav ul li {text-decoration: none;
 nav a {text-decoration: none;
 		color: blue;
 		/* text-align: center; */
-		display: inline-block;
+		display: flex;
+		align-items: center;
+		
+
 	
-	position: relative;
+	
+	
 
 	}
 nav ul {background-color: silver;}
 
 
 
-nav li {display: inline-block;}
+nav li {display: flex;}
 nav ul ul {position: absolute;
 			padding: 0;
 			display: none;
@@ -60,6 +64,7 @@ nav ul ul {position: absolute;
 			}
 nav ul ul li a {display: block;
 				border-bottom: 1px solid #000000;
+				
 				
 
 				}
@@ -69,7 +74,9 @@ header a {color: blue;
 		text-decoration: none;
 		}
 
-nav {background-color: silver;}
+nav {background-color: silver;
+		
+		}
 
 
 footer { font-size: small;
@@ -84,20 +91,21 @@ footer { font-size: small;
 }
 
 
-#logo {background: url(hookedlogo.jpeg);
+#logo {background: white url(hookedlogo.jpeg) no-repeat;
+	
 	
 	
 		
 			
 			height: 100px;
-			width: 450px;
-			
+			width: 350px;
 			/*border:  5px solid blue;*/
 			overflow: hidden;
 			background-repeat: no-repeat;
 			background-size: 100% 110%;
 			margin: 1em;
-			margin: left;
+			margin-left: auto;
+			margin-right: auto;
 
 
 }
