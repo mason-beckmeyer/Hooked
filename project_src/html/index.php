@@ -29,21 +29,21 @@ session_start();
 
         
 		<li>
-            <a href="index.html">Home</a></li>
+            <a href="index.php">Home</a></li>
 
 	
-		<li><a href="calendar.html">Calendar</a>
+		<li><a href="calendar.php">Calendar</a>
 		<ul>
-		<li><a href="CurrentEvents.html">Current Events</a></li>
+		<li><a href="CurrentEvents.php">Current Events</a></li>
 		
-		<li><a href="AddEvents.html">Add Events</a></li>
+		<li><a href="AddEvents.php">Add Events</a></li>
         
 		</ul>
         
 	</li>
-		<li><a href="about.html">Feed</a></li>
-		<li><a href="contact.html">Messaging</a></li>
-		<li><a href="design.html">Account</a></li>
+		<li><a href="about.php">Feed</a></li>
+		<li><a href="contact.php">Messaging</a></li>
+		<li><a href="design.php">Account</a></li>
         
 	</ul>
 
