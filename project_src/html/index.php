@@ -25,7 +25,7 @@ session_start();
 	<ul>
 
         
-		<li><a href="create_acct.php">Home</a></li>
+		
 
         
 		<li>
