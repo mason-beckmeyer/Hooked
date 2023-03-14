@@ -17,14 +17,14 @@ session_start();
 <header>
 	<!-- <h1><a href="index.html"> H∞ked
 								</a></h1> -->
-<!-- <div id="logo"></div> -->
+<div id="logo"></div>
 </header>
 
 <nav>
     
 	<ul>
 
-        <div id="logo"></div>
+        
 		<li><a href="create_acct.html">Home</a></li>
 
         
