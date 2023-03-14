@@ -84,11 +84,11 @@
 -->
 
 
-<php>
+<?php
 
-echo "bot";
-    
-</php>
+
+
+?>
 
 </div>
 
