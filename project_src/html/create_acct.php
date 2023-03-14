@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,11 +15,7 @@
 </head>
 <body>
 
-<?php
 
-session_start();
-
-?>
 
 <header>
 	<!-- <h1><a href="index.html"> H∞ked
@@ -67,13 +68,44 @@ session_start();
     <br>
     <input name="eml" type="email" id="eml">
     <br>
-    <br>
+    
     <label for="psswd">
         Password:
     </label>
     <br>
     <input name="psswd" type="password" id="psswd">
+    
     <br>
+    <label for="usrnm">
+        Username:
+    </label>
+    <br>
+    <input name="usrnm" type="text" id="usrnm">
+    <br>
+    <label>
+        Bio:
+    </label>
+    <br>
+    <input name="bio" type="text" id="bio">
+    <br>
+    <label>
+        Type of Account:
+    </label>
+    <br>
+    <input type="radio" name="isAlumni" id="isAlumni">
+    <label for="isAlumni">
+        Alumni
+    </label>
+    <input type="radio" name="isStudent" id="isStudent">
+    <label for="isStudent">
+        Student
+    </label>
+    <input type="radio" name="isCompany" id="isCompany">
+    <label for="isCompany">
+        Company
+    </label>
+    <br>
+
     <button type="submit" value="submit">Login</button>
     <br>
     <button type="button">Have an Account?</button>
