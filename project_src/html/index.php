@@ -82,7 +82,7 @@ session_start();
     <br>
     <button type="submit" value="submit">Login</button>
     <br>
-    <button type="button" formaction="create_acct.php">Don't have an account?</button>
+    <a href="create_acct.php">Don't have an account?</a>
     <br>
     <button type="button">Forgot Password</button>
 
