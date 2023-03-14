@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<?php
+
+session_start();
+
+?>
+
 <header>
 	<!-- <h1><a href="index.html"> H∞ked
 								</a></h1> -->
