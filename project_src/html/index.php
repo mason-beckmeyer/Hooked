@@ -32,16 +32,7 @@ session_start();
             <a href="index.php">Home</a></li>
 
 	
-		<li><a href="calendar.php">Calendar</a>
-		<ul>
-            <br>
-		<li><a href="CurrentEvents.php">Current Events</a></li>
-		
-		<li><a href="AddEvents.php">Add Events</a></li>
-        
-		</ul>
-        
-	</li>
+		<li><a href="calendar.php">Calendar</a></li>
 		<li><a href="about.php">Feed</a></li>
 		<li><a href="contact.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
