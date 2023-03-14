@@ -61,7 +61,7 @@ session_start();
 
 
 <div id="tablefont">
-
+<form method="post">
 <label for="eml">
         Email:
     </label>
@@ -111,11 +111,13 @@ session_start();
     </label>
     <br>
 
-    <button type="submit" value="submit">Login</button>
+    <input type="submit" value="submit" name="submit">
     <br>
     <button type="button">Have an Account?</button>
     <br>
     <button type="button">Forgot Password</button>
+
+</form>
 
 <!-- <label for="myEmail"> E-mail:       </label><input type="email" id="myEmail" name="myEmail" required="required">
 <br><br>
@@ -129,13 +131,16 @@ session_start();
 
 <?php
 
-$servername = "localhost";
-$username = "username";
-$password = "password";
+$servername = "Localhost";
+$username = "root";
+$password = "";
 $hooked_db = "hooked_db";
+
 $conn = new mysqli($servername,$username,$password,$hooked_db);
 
+
 if ($conn -> connect_error){
+    echo "Connection error";
     die("Connection failed". $conn -> connect_error);
 }
 //Variables for sql insert
@@ -143,9 +148,11 @@ $email = $_POST['eml'];
 $password = $_POST['psswd'];
 $username = $_POST['usrnm'];
 $userBio = $_POST['bio'];
+echo "This is post sql variable";
 //Checks if form is submitted (not necessary)
 if(isset($_POST['submit'])){
     //Turns radio values into booleans to use later
+    
     $isAlumni = $_POST['isAlumni'] = $_POST['isAlumni'] == 'true' ? true:false;
     $isStudent = $_POST['isStudent'] = $_POST['isStudent'] == 'true' ? true:false;
     $isCompany = $_POST['isCompany'] = $_POST['isCompany'] == 'true' ? true:false;
@@ -154,7 +161,14 @@ if(isset($_POST['submit'])){
 }
 
 //Sql query to check database if record exists
-$sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email,userPassword = $password");
+$sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email userPassword = $password");
+echo "This is post sql query assignment";
+if($sql){
+    echo "First query works";
+}
+else{
+    echo "First query error";
+}
 //Add username field once database is fixed
 //Conditional that checks whether an account with the email and password exists
 //Executes exception if account already exists
