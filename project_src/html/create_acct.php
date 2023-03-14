@@ -1,5 +1,5 @@
 <?php
-
+//Session start
 session_start();
 
 ?>
@@ -92,17 +92,22 @@ session_start();
         Type of Account:
     </label>
     <br>
-    <input type="radio" name="isAlumni" id="isAlumni">
+    <input type="radio" name="isAlumni" id="isAlumni" value="false">
     <label for="isAlumni">
         Alumni
     </label>
-    <input type="radio" name="isStudent" id="isStudent">
+    <input type="radio" name="isStudent" id="isStudent" value="false">
     <label for="isStudent">
         Student
     </label>
-    <input type="radio" name="isCompany" id="isCompany">
+    <input type="radio" name="isCompany" id="isCompany" value="false">
     <label for="isCompany">
         Company
+    </label>
+    <br>
+    <input type="radio" name="isFaculty" id="isFaculty" value="false">
+    <label for="isFaculty">
+        Faculty
     </label>
     <br>
 
@@ -124,8 +129,58 @@ session_start();
 
 <?php
 
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$hooked_db = "hooked_db";
+$conn = new mysqli($servername,$username,$password,$hooked_db);
+
+if ($conn -> connect_error){
+    die("Connection failed". $conn -> connect_error);
+}
+//Variables for sql insert
+$email = $_POST['eml'];
+$password = $_POST['psswd'];
+$username = $_POST['usrnm'];
+$userBio = $_POST['bio'];
+//Checks if form is submitted (not necessary)
+if(isset($_POST['submit'])){
+    //Turns radio values into booleans to use later
+    $isAlumni = $_POST['isAlumni'] = $_POST['isAlumni'] == 'true' ? true:false;
+    $isStudent = $_POST['isStudent'] = $_POST['isStudent'] == 'true' ? true:false;
+    $isCompany = $_POST['isCompany'] = $_POST['isCompany'] == 'true' ? true:false;
+    $isFaculty = $_POST['isFaculty'] = $_POST['isFaculty'] == 'true' ? true:false;
+
+}
+
+//Sql query to check database if record exists
+$sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email,userPassword = $password");
+//Add username field once database is fixed
+//Conditional that checks whether an account with the email and password exists
+//Executes exception if account already exists
+//If account does not exist row is inserted into table
+if(!$sql){
+    $sql = "INSERT INTO User (userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty) VALUES ($email,$password,$userBio,$isAlumni,$isCompany,$isStudent,$isFaculty)";
+
+    $result = $conn -> query($sql);
+    
+    if($result){
+        //Creates session variable of new user after it is added to database
+        //Also has exceptions to help with debugging later
+        $_SESSION['user'] = new Users("",$email,$password,$userBio,$isAlumni,$isStudent,$isCompany,$isFaculty);
+    }
+    else{
+        echo "Invalid value or other database conn error";
+        throw new Exception("Invalid value or other database issue");
+    }
+}
+else{
+    throw new Exception("User already exists");
+}
 
 
+
+$conn -> close();
 ?>
 
 </div>

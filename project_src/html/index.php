@@ -118,10 +118,10 @@ if ($conn -> connect_error){
     die("Connection failed". $conn -> connect_error);
 }
 
-$email = $_POST('eml');
-$password = $_POST('psswd');
+$email = $_POST['eml'];
+$password = $_POST['psswd'];
 
-$sql = "SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email,userPassword = $password";
+$sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email,userPassword = $password");
 
 if(!$sql){
     throw new UnexpectedValueException;
@@ -129,7 +129,7 @@ if(!$sql){
 }
 
 else{
-    $result = $conn -> query($sql);
+    $result = $sql;
 
     $row = $result -> fetch_assoc();
     
@@ -141,7 +141,7 @@ else{
 }
 
 
-
+$conn -> close();
 ?>
 
 </html>
