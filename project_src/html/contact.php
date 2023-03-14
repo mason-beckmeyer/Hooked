@@ -19,13 +19,7 @@
 	<ul>
 		<li><a href="index.php">Home</a></li>
 	
-		<li><a href="calender.php">Calender</a>
-		<ul>
-		<li><a href="CurrentEvents.php">Current Events</a></li>
-		
-		<li><a href="AddEvents.php">Add Events</a></li>
-		</ul>
-	</li>
+		<li><a href="calender.php">Calender</a>	</li>
 		<li><a href="about.php">Feed</a></li>
 		<li><a href="contact.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
