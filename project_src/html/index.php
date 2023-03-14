@@ -27,7 +27,7 @@ session_start();
         <div id="logo"></div>
 		<li><a href="create_acct.html">Home</a></li>
 
-        <a href="index.html"><div id="logo"> </div></a>
+        
 		<li>
             <a href="index.html">Home</a></li>
 
