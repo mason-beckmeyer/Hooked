@@ -34,6 +34,7 @@ session_start();
 	
 		<li><a href="calendar.php">Calendar</a>
 		<ul>
+            <br>
 		<li><a href="CurrentEvents.php">Current Events</a></li>
 		
 		<li><a href="AddEvents.php">Add Events</a></li>
