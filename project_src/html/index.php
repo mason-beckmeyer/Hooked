@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Welcome to Hooked">
 </head>
+
 <body>
 
 <header>
@@ -19,9 +23,14 @@
 <nav>
     
 	<ul>
+
+        <div id="logo"></div>
+		<li><a href="create_acct.html">Home</a></li>
+
         <a href="index.html"><div id="logo"> </div></a>
 		<li>
             <a href="index.html">Home</a></li>
+
 	
 		<li><a href="calendar.html">Calendar</a>
 		<ul>
@@ -73,7 +82,7 @@
     <br><br>
     <button type="submit" value="submit">Login</button>
     <br>
-    <button type="button">Don't have an account?</button>
+    <a href="create_acct.php">Don't have an account?</a>
     <br>
     <button type="button">Forgot Password</button>
 
@@ -87,11 +96,7 @@
 -->
 
 
-<php>
 
-
-    
-</php>
 
 </div>
 
@@ -102,5 +107,41 @@
 <a href="Hooked@gmail.com">Hooked@gmail.com</a>
 </footer>
 </body>
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$hooked_db = "hooked_db";
+$conn = new mysqli($servername,$username,$password,$hooked_db);
+
+if ($conn -> connect_error){
+    die("Connection failed". $conn -> connect_error);
+}
+
+$email = $_POST['eml'];
+$password = $_POST['psswd'];
+
+$sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email,userPassword = $password");
+
+if(!$sql){
+    throw new UnexpectedValueException;
+
+}
+
+else{
+    $result = $sql;
+
+    $row = $result -> fetch_assoc();
+    
+    $user = new Users($row['userName'],$row['userEmail'],$row['userPassword'],$row['userBio'],$row['isAlumni'],$row['isStudent'],$row['isCompany'],$row['isFaculty']);
+
+    $_SESSION['user'] = $user;
+
+
+}
+
+
+$conn -> close();
+?>
 
 </html>

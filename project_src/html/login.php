@@ -29,11 +29,12 @@
     <br>
     <button type="submit" value="submit">Login</button>
     <br>
-    <button type="button">Don't have an account?</button>
+    <button type="button" formaction="create_acct.php">Don't have an account?</button>
     <br>
     <button type="button">Forgot Password</button>
 </form>
 
 
 </body>
+
 </html>
