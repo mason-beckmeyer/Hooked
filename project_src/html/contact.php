@@ -11,8 +11,7 @@
 <body>
 
 <header>
-	<h1><a href="index.php"> H∞ked
-								</a></h1>
+<div id="logo"></div>
 </header>
 
 <nav>
@@ -33,7 +32,7 @@
 </nav>
 <main>
 <header>
-	<div id="logo"></div>
+	
 	<br><br>
 
 	<h2>Sign In</h2>
