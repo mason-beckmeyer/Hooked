@@ -160,14 +160,14 @@ $sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isC
 //Executes exception if account already exists
 //If account does not exist row is inserted into table
 if(!$sql){
-    $sql = "INSERT INTO User (userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty) VALUES ($email,$password,$userBio,$isAlumni,$isCompany,$isStudent,$isFaculty)";
+    $sql = "INSERT INTO User (userName,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty) VALUES ($username,$email,$password,$userBio,$isAlumni,$isCompany,$isStudent,$isFaculty)";
 
     $result = $conn -> query($sql);
     
     if($result){
         //Creates session variable of new user after it is added to database
         //Also has exceptions to help with debugging later
-        $_SESSION['user'] = new Users("",$email,$password,$userBio,$isAlumni,$isStudent,$isCompany,$isFaculty);
+        $_SESSION['user'] = new Users($username,$email,$password,$userBio,$isAlumni,$isStudent,$isCompany,$isFaculty);
     }
     else{
         echo "Invalid value or other database conn error";
