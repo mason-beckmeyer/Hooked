@@ -8,6 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Welcome to Hooked">
 </head>
+<?php
+session_start();
+?>
 <body>
 
 <header>
@@ -19,14 +22,14 @@
 <nav>
     
 	<ul>
-<<<<<<< HEAD
+
         <div id="logo"></div>
 		<li><a href="create_acct.html">Home</a></li>
-=======
+
         <a href="index.html"><div id="logo"> </div></a>
 		<li>
             <a href="index.html">Home</a></li>
->>>>>>> 0b98cbc7c527236ae56d7f3f2e5fe1ef72b040e9
+
 	
 		<li><a href="calendar.html">Calendar</a>
 		<ul>
@@ -103,5 +106,41 @@
 <a href="Hooked@gmail.com">Hooked@gmail.com</a>
 </footer>
 </body>
+<?php
+$servername = "localhost";
+$username = "username";
+$password = "password";
+$hooked_db = "hooked_db";
+$conn = new mysqli($servername,$username,$password,$hooked_db);
+
+if ($conn -> connect_error){
+    die("Connection failed". $conn -> connect_error);
+}
+
+$email = $_POST('eml');
+$password = $_POST('psswd');
+
+$sql = "SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email,userPassword = $password";
+
+if(!$sql){
+    throw new UnexpectedValueException;
+
+}
+
+else{
+    $result = $conn -> query($sql);
+
+    $row = $result -> fetch_assoc();
+    
+    $user = new Users($row['userID'],$row['userEmail'],$row['userPassword'],$row['userBio'],$row['isAlumni'],$row['isStudent'],$row['isCompany'],$row['isFaculty']);
+
+    $_SESSION['user'] = $user;
+
+
+}
+
+
+
+?>
 
 </html>
