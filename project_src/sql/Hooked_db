@@ -1,5 +1,6 @@
 CREATE TABLE IF NOT EXISTS `hooked_db`.`User` (
   `userID` INT NOT NULL,
+  `userName` VARCHAR(45) NOT NULL,
   `userEmail` VARCHAR(45) ,
   `userPassword` VARCHAR(45) ,
   `userBio` VARCHAR(255) ,
