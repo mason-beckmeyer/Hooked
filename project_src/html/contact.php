@@ -18,7 +18,7 @@
 	<ul>
 		<li><a href="index.php">Home</a></li>
 	
-		<li><a href="calender.php">Calender</a>	</li>
+		<li><a href="calender.php">Calendar</a>	</li>
 		<li><a href="about.php">Feed</a></li>
 		<li><a href="contact.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
