@@ -44,7 +44,7 @@ session_start();
 		<li><a href="about.php">Feed</a></li>
 		<li><a href="contact.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
-        <li><a href="create_acct.php">Sign Up</a></li>
+        
         
 	</ul>
 

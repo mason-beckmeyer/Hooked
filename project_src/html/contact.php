@@ -11,24 +11,24 @@
 <body>
 
 <header>
-	<h1><a href="index.html"> H∞ked
+	<h1><a href="index.php"> H∞ked
 								</a></h1>
 </header>
 
 <nav>
 	<ul>
-		<li><a href="index.html">Home</a></li>
+		<li><a href="index.php">Home</a></li>
 	
-		<li><a href="calender.html">Calender</a>
+		<li><a href="calender.php">Calender</a>
 		<ul>
-		<li><a href="CurrentEvents.html">Current Events</a></li>
+		<li><a href="CurrentEvents.php">Current Events</a></li>
 		
-		<li><a href="AddEvents.html">Add Events</a></li>
+		<li><a href="AddEvents.php">Add Events</a></li>
 		</ul>
 	</li>
-		<li><a href="about.html">Feed</a></li>
-		<li><a href="contact.html">Messaging</a></li>
-		<li><a href="design.html">Account</a></li>
+		<li><a href="about.php">Feed</a></li>
+		<li><a href="contact.php">Messaging</a></li>
+		<li><a href="design.php">Account</a></li>
 	</ul>
 
 
