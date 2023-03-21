@@ -33,7 +33,7 @@ session_start();
 
 	
 		<li><a href="calendar.php">Calendar</a></li>
-		<li><a href="about.php">Feed</a></li>
+		<li><a href="login.php">Feed</a></li>
 		<li><a href="contact.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
         

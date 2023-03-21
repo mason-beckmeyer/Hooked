@@ -11,15 +11,14 @@
 <body>
 
 <header>
-	<h1><a href="index.php"> H∞ked
-								</a></h1>
+<div id="logo"></div>
 </header>
 
 <nav>
 	<ul>
 		<li><a href="index.php">Home</a></li>
 	
-		<li><a href="calender.php">Calender</a>	</li>
+		<li><a href="calender.php">Calendar</a>	</li>
 		<li><a href="about.php">Feed</a></li>
 		<li><a href="contact.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
@@ -33,7 +32,7 @@
 </nav>
 <main>
 <header>
-	<div id="logo"></div>
+	
 	<br><br>
 
 	<h2>Sign In</h2>

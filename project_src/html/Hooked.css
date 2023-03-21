@@ -110,6 +110,16 @@ footer { font-size: small;
 
 }
 
+#wallpaper {background: white url(flowywallpaper.jpeg) no-repeat;
+	height: 100px;
+	width: 350px;
+	
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: 100% 110%;
+	
+	margin-left: auto;
+	margin-right: auto;}
 
 
 p {text-align: center;}
