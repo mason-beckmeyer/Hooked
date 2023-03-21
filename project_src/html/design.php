@@ -52,8 +52,8 @@ session_start();
 		<tr>
 		<th><a href="fall2021.html">Account Name</a>
 			<p>BIO "I am a chach"</p></th>
-		<th><a href="spring2022.html">Spring 2022 Collection</a>
-			<p>"COMING SOON"</p></th>
+		<th><a href="spring2022.html"></a>
+			<p></p></th>
 	</tr>
 	<tr>
 	<td><div id="soldout"></div></td>
