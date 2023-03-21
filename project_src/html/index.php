@@ -128,7 +128,7 @@ else{
     
     $user = new Users($row['userName'],$row['userEmail'],$row['userPassword'],$row['userBio'],$row['isAlumni'],$row['isStudent'],$row['isCompany'],$row['isFaculty']);
 
-    $_SESSION['user'] = $user;
+    
 
 
 }

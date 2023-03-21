@@ -125,12 +125,12 @@ session_start();
 
 <?php
 
-$servername = "Localhost";
+$servername = "localhost";
 $username = "root";
 $password = "";
 $hooked_db = "hooked_db";
 
-$conn = new mysqli($servername,$username,$password,$hooked_db);
+$conn = mysqli_connect($servername,$username,$password,$hooked_db);
 
 
 if ($conn -> connect_error){
@@ -144,34 +144,34 @@ $username = $_POST['usrnm'];
 $userBio = $_POST['bio'];
 echo "This is post sql variable";
 //Checks if form is submitted (not necessary)
-if(isset($_POST['submit'])){
-    //Turns radio values into booleans to use later
+// if(isset($_POST['submit'])){
+//     //Turns radio values into booleans to use later
     
-    $isAlumni = $_POST['isAlumni'] = $_POST['isAlumni'] == 'true' ? true:false;
-    $isStudent = $_POST['isStudent'] = $_POST['isStudent'] == 'true' ? true:false;
-    $isCompany = $_POST['isCompany'] = $_POST['isCompany'] == 'true' ? true:false;
-    $isFaculty = $_POST['isFaculty'] = $_POST['isFaculty'] == 'true' ? true:false;
+//     $isAlumni = $_POST['isAlumni'] = $_POST['isAlumni'] == 'true' ? true:false;
+//     $isStudent = $_POST['isStudent'] = $_POST['isStudent'] == 'true' ? true:false;
+//     $isCompany = $_POST['isCompany'] = $_POST['isCompany'] == 'true' ? true:false;
+//     $isFaculty = $_POST['isFaculty'] = $_POST['isFaculty'] == 'true' ? true:false;
 
-}
-
+// }
+echo "This broke";
 //Sql query to check database if record exists
-$sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email userPassword = $password");
-echo "This is post sql query assignment";
-if($sql){
-    echo "First query works";
-}
-else{
-    echo "First query error";
-}
+// $sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email userPassword = $password");
+// echo "This is post sql query assignment";
+// if($sql){
+//     echo "First query works";
+// }
+// else{
+//     echo "First query error";
+// }
 //Add username field once database is fixed
 //Conditional that checks whether an account with the email and password exists
 //Executes exception if account already exists
 //If account does not exist row is inserted into table
-if(!$sql){
-    $sql = "INSERT INTO User (userName,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty) VALUES ($username,$email,$password,$userBio,$isAlumni,$isCompany,$isStudent,$isFaculty)";
 
+    $sql = "INSERT INTO User (userEmail,userPassword,userBio) VALUES ($email,$password,$userBio)";
+    echo "WOMP";
     $result = $conn -> query($sql);
-    
+    echo "WOOP";
     if($result){
         //Creates session variable of new user after it is added to database
         //Also has exceptions to help with debugging later
@@ -181,10 +181,8 @@ if(!$sql){
         echo "Invalid value or other database conn error";
         throw new Exception("Invalid value or other database issue");
     }
-}
-else{
-    throw new Exception("User already exists");
-}
+
+
 
 
 
