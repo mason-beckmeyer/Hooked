@@ -48,15 +48,16 @@ session_start();
 </nav>
 
 <main>
+    <br><br>
 <table>
 		<tr>
-		<th><a href="fall2021.html">Account Name</a>
-			<p>BIO "I am a chach"</p></th>
+		<th><a href="fall2021.html">Salam Lawal</a>
+			<p>BIO: "Computer Science Major"</p></th>
 		<th><a href="spring2022.html"></a>
 			<p></p></th>
 	</tr>
 	<tr>
-	<td><div id="soldout"></div></td>
+	<td><div id="logo"></div></td>
 	<td><div id="comingsoon"></div></td>
 </tr>
 
