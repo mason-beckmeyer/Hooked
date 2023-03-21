@@ -146,13 +146,13 @@ body {font-family: Verdana, sans-serif;}
 </div>
 
 <ul class="weekdays">
-  <li>Mo</li>
-  <li>Tu</li>
-  <li>We</li>
-  <li>Th</li>
-  <li>Fr</li>
-  <li>Sa</li>
-  <li>Su</li>
+  <li>Monday</li>
+  <li>Tuesday</li>
+  <li>Wednesday</li>
+  <li>Thursday</li>
+  <li>Friday</li>
+  <li>Saturday</li>
+  <li>Sunday</li>
 </ul>
 
 <ul class="days">  

@@ -54,7 +54,7 @@ session_start();
     <br>
     <input name="psswd" type="password" id="psswd">
     <br><br>
-    <a href = "index.php"><button type="submit" value="submit">Login</button></a>
+    <a href = "calendar.php"><button type="submit" value="submit">Login</button></a>
     <br>
     <a href="create_acct.php">Don't have an account?</a>
     <br>
