@@ -49,12 +49,15 @@ session_start();
 
 <main>
 <table>
-	
-		<th>Account Name</th>
-		<td>BIO</td>
-
-	<td>Company</td>
-	
+		<tr>
+		<th><a href="fall2021.html">Account Name</a>
+			<p>BIO "I am a chach"</p></th>
+		<th><a href="spring2022.html">Spring 2022 Collection</a>
+			<p>"COMING SOON"</p></th>
+	</tr>
+	<tr>
+	<td><div id="soldout"></div></td>
+	<td><div id="comingsoon"></div></td>
 </tr>
 
 
