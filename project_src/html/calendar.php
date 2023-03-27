@@ -1,70 +1,101 @@
+<?php
+// Set timezone
+date_default_timezone_set('UTC');
+
+// Get current month and year
+$month = isset($_GET['month']) ? intval($_GET['month']) : date('n');
+$year = isset($_GET['year']) ? intval($_GET['year']) : date('Y');
+
+// Get number of days in the month
+$num_days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+
+// Get the name of the month
+$month_name = date('F', mktime(0, 0, 0, $month, 1, $year));
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Calendar</title>
-</head>
-<body>
-	<h2>PHP Calendar</h2>
-	<form method="post" action="">
-		<label for="year">Select Year:</label>
-		<select id="year" name="year">
-			<?php
-				for ($i = 2022; $i <= 2025; $i++) {
-					echo "<option value='$i'>$i</option>";
-				}
-			?>
-		</select>
-		<label for="month">Select Month:</label>
-		<select id="month" name="month">
-			<?php
-				for ($i = 1; $i <= 12; $i++) {
-					$month = date("F", mktime(0, 0, 0, $i, 1, 2022));
-					echo "<option value='$i'>$month</option>";
-				}
-			?>
-		</select>
-		<input type="submit" name="submit" value="Submit">
-	</form>
-	<?php
-		if(isset($_POST['submit'])) {
-			$year = $_POST['year'];
-			$month = $_POST['month'];
-			$days_in_month = cal_days_in_month(CAL_GREGORIAN, $month, $year);
-			$first_day = date("N", mktime(0, 0, 0, $month, 1, $year));
-			?>
-			<table border="1">
-				<tr>
-					<th>Sun</th>
-					<th>Mon</th>
-					<th>Tue</th>
-					<th>Wed</th>
-					<th>Thu</th>
-					<th>Fri</th>
-					<th>Sat</th>
-				</tr>
-				<tr>
-					<?php
-						$day = 1;
-						for ($i = 1; $i < $first_day; $i++) {
-							echo "<td></td>";
-							$day++;
-						}
-						for ($i = 1; $i <= $days_in_month; $i++) {
-							if ($day == 8) {
-								echo "</tr><tr>";
-								$day = 1;
-							}
-							echo "<td>$i</td>";
-							$day++;
-						}
-						for ($i = $day; $i <= 7; $i++) {
-							echo "<td></td>";
-						}
-					?>
-				</tr>
-			</table>
-			<?php
+	<title>Calendar</title>
+	<style>
+		.calendar {
+			display: flex;
+			flex-flow: column;
 		}
-	?>
-</body>
-</html>
+		.calendar .header .month-year {
+			font-size: 20px;
+			font-weight: bold;
+			color: #636e73;
+			padding: 20px 0;
+		}
+		.calendar .days {
+			display: flex;
+			flex-flow: wrap;
+		}
+		.calendar .days .day_name {
+			width: calc(100% / 7);
+			border-right: 1px solid #2c7aca;
+			padding: 20px;
+			text-transform: uppercase;
+			font-size: 12px;
+			font-weight: bold;
+			color: #818589;
+			color: #fff;
+			background-color: #448cd6;
+		}
+		.calendar .days .day_name:nth-child(7) {
+			border: none;
+		}
+		.calendar .days .day_num {
+			display: flex;
+			flex-flow: column;
+			width: calc(100% / 7);
+			border-right: 1px solid #e6e9ea;
+			border-bottom: 1px solid #e6e9ea;
+			padding: 15px;
+			font-weight: bold;
+			color: #7c878d;
+			cursor: pointer;
+			min-height: 100px;
+		}
+		.calendar .days .day_num span {
+			display: inline-flex;
+			width: 30px;
+			font-size: 14px;
+		}
+		.calendar .days .day_num .event {
+			margin-top: 10px;
+			font-weight: 500;
+			font-size: 14px;
+			padding: 3px 6px;
+			border-radius: 4px;
+			background-color: #f7c30d;
+			color: #fff;
+			word-wrap: break-word;
+		}
+		.calendar .days .day_num .event.green {
+			background-color: #51ce57;
+		}
+		.calendar .days .day_num .event.blue {
+			background-color: #518fce;
+		}
+		.calendar .days .day_num .event.red {
+			background-color: #ce5151;
+		}
+		.calendar .days .day_num:nth-child(7n+1) {
+			border-left: 1px solid #e6e9ea;
+		}
+		.calendar .days .day_num:hover {
+			background-color: #fdfdfd;
+		}
+		.calendar .days .day_num.ignore {
+			background-color: #fdfdfd;
+			color: #ced2d4;
+			cursor: inherit;
+		}
+		.calendar .days .day_num.selected {
+			background-color: #f1f2f3;
+			cursor: inherit;
+		}
+	</style>
+</
