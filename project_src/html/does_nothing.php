@@ -54,11 +54,16 @@ session_start();
     <br>
     <input name="psswd" type="password" id="psswd">
     <br><br>
-    <a href = "calendar.php"><button type="submit" value="submit">Login</button></a>
+    
+    <input type="submit" value="submit" name="login">
+    <label for="login">
+        Login
+    </label>
+        
     <br>
     <a href="create_acct.php">Don't have an account?</a>
     <br>
-    <button type="button">Forgot Password</button>
+    <input type="submit" value="submit" name="submit">Forgot Password</button>
 
 <!-- <label for="myEmail"> E-mail:       </label><input type="email" id="myEmail" name="myEmail" required="required">
 <br><br>
@@ -82,40 +87,46 @@ session_start();
 </footer>
 </body>
 <?php
+session_start();
+
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "root";
+$password = "";
 $hooked_db = "hooked_db";
-$conn = new mysqli($servername,$username,$password,$hooked_db);
 
-if ($conn -> connect_error){
-    die("Connection failed". $conn -> connect_error);
+// Establish connection
+$conn = mysqli_connect($servername, $username, $password, $hooked_db);
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
 }
 
-$email = $_POST['eml'];
-$password = $_POST['psswd'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
-$sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email,userPassword = $password");
+    // Check if email and password match with database
+    $sql = "SELECT * FROM User WHERE userEmail='$email' AND userPassword='$password'";
+    $result = mysqli_query($conn, $sql);
 
-if(!$sql){
-    throw new UnexpectedValueException;
+    if (mysqli_num_rows($result) == 1) {
+        // Login successful
+        $user = mysqli_fetch_assoc($result);
 
+        // Store user data in session
+        $_SESSION["user"] = $user;
+
+        // Redirect to homepage or dashboard
+        header("Location: design.php");
+        exit();
+    } else {
+        // Login failed
+        $login_error = "Invalid email or password";
+    }
 }
 
-else{
-    $result = $sql;
-
-    $row = $result -> fetch_assoc();
-    
-    $user = new Users($row['userName'],$row['userEmail'],$row['userPassword'],$row['userBio'],$row['isAlumni'],$row['isStudent'],$row['isCompany'],$row['isFaculty']);
-
-    $_SESSION['user'] = $user;
-
-
-}
-
-
-$conn -> close();
+// Close database connection
+mysqli_close($conn);
 ?>
 
 </html>
