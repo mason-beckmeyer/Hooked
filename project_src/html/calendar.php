@@ -1,197 +1,75 @@
 <?php
-session_start();
+class Calendar {
+
+    private $active_year, $active_month, $active_day;
+    private $events = [];
+
+    public function __construct($date = null) {
+        $this->active_year = $date != null ? date('Y', strtotime($date)) : date('Y');
+        $this->active_month = $date != null ? date('m', strtotime($date)) : date('m');
+        $this->active_day = $date != null ? date('d', strtotime($date)) : date('d');
+    }
+
+    public function add_event($txt, $date, $days = 1, $color = '') {
+        $color = $color ? ' ' . $color : $color;
+        $this->events[] = [$txt, $date, $days, $color];
+    }
+
+    public function __toString() {
+        $num_days = date('t', strtotime($this->active_day . '-' . $this->active_month . '-' . $this->active_year));
+        $num_days_last_month = date('j', strtotime('last day of previous month', strtotime($this->active_day . '-' . $this->active_month . '-' . $this->active_year)));
+        $days = [0 => 'Sun', 1 => 'Mon', 2 => 'Tue', 3 => 'Wed', 4 => 'Thu', 5 => 'Fri', 6 => 'Sat'];
+        $first_day_of_week = array_search(date('D', strtotime($this->active_year . '-' . $this->active_month . '-1')), $days);
+        $html = '<div class="calendar">';
+        $html .= '<div class="header">';
+        $html .= '<div class="month-year">';
+        $html .= date('F Y', strtotime($this->active_year . '-' . $this->active_month . '-' . $this->active_day));
+        $html .= '</div>';
+        $html .= '</div>';
+        $html .= '<div class="days">';
+        foreach ($days as $day) {
+            $html .= '
+                <div class="day_name">
+                    ' . $day . '
+                </div>
+            ';
+        }
+        for ($i = $first_day_of_week; $i > 0; $i--) {
+            $html .= '
+                <div class="day_num ignore">
+                    ' . ($num_days_last_month-$i+1) . '
+                </div>
+            ';
+        }
+        for ($i = 1; $i <= $num_days; $i++) {
+            $selected = '';
+            if ($i == $this->active_day) {
+                $selected = ' selected';
+            }
+            $html .= '<div class="day_num' . $selected . '">';
+            $html .= '<span>' . $i . '</span>';
+            foreach ($this->events as $event) {
+                for ($d = 0; $d <= ($event[2]-1); $d++) {
+                    if (date('y-m-d', strtotime($this->active_year . '-' . $this->active_month . '-' . $i . ' -' . $d . ' day')) == date('y-m-d', strtotime($event[1]))) {
+                        $html .= '<div class="event' . $event[3] . '">';
+                        $html .= $event[0];
+                        $html .= '</div>';
+                    }
+                }
+            }
+            $html .= '</div>';
+        }
+        for ($i = 1; $i <= (42-$num_days-max($first_day_of_week, 0)); $i++) {
+            $html .= '
+                <div class="day_num ignore">
+                    ' . $i . '
+                </div>
+            ';
+        }
+        $html .= '</div>';
+        $html .= '</div>';
+        return $html;
+    }
+
+}
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<title>Hooked</title>
-<link href="Hooked.css" rel="stylesheet">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Welcome to Hooked">
-</head>
-
-<body>
-
-<header>
-	<!-- <h1><a href="index.html"> H∞ked
-								</a></h1> -->
-<div id="logo"></div>
-</header>
-
-<nav>
-    
-	<ul>
-
-        
-		
-
-        
-		<li>
-            <a href="index.php">Home</a></li>
-
-	
-		<li><a href="calendar.php">Calendar</a></li>
-		<li><a href="about.php">Feed</a></li>
-		<li><a href="contact.php">Messaging</a></li>
-		<li><a href="design.php">Account</a></li>
-        
-        
-	</ul>
-
-
-			
-
-	
-
-</nav>
-
-<head>
-<style>
-* {box-sizing: border-box;}
-ul {list-style-type: none;}
-body {font-family: Verdana, sans-serif;}
-
-.month {
-  padding: 70px 25px;
-  width: 100%;
-  background: #1abc9c;
-  text-align: center;
-}
-
-.month ul {
-  margin: 0;
-  padding: 0;
-}
-
-.month ul li {
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.month .prev {
-  float: left;
-  padding-top: 10px;
-}
-
-.month .next {
-  float: right;
-  padding-top: 10px;
-}
-
-.weekdays {
-  margin: 0;
-  padding: 10px 0;
-  background-color: #ddd;
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: #666;
-  text-align: center;
-}
-
-.days {
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
-}
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.6%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
-}
-
-.days li .active {
-  padding: 5px;
-  background: #1abc9c;
-  color: white !important
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-  .weekdays li, .days li {width: 13.1%;}
-}
-
-@media screen and (max-width: 420px) {
-  .weekdays li, .days li {width: 12.5%;}
-  .days li .active {padding: 2px;}
-}
-
-@media screen and (max-width: 290px) {
-  .weekdays li, .days li {width: 12.2%;}
-}
-</style>
-</head>
-<body>
-
-<div class="month">      
-  <ul>
-    <li class="prev">&#10094;</li>
-    <li class="next">&#10095;</li>
-    <li>
-      August<br>
-      <span style="font-size:18px">2023</span>
-    </li>
-  </ul>
-</div>
-
-<ul class="weekdays">
-  <li>Monday</li>
-  <li>Tuesday</li>
-  <li>Wednesday</li>
-  <li>Thursday</li>
-  <li>Friday</li>
-  <li>Saturday</li>
-  <li>Sunday</li>
-</ul>
-
-<ul class="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <br><br>
-  <li>8</li>
-  <li>9</li>
-  <li><span class="active">10</span></li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <br><br>
-  <li>15</li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <br><br>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <br><br>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-
-</body>
-</html>
