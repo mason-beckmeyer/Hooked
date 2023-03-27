@@ -86,20 +86,20 @@ session_start();
         Type of Account:
     </label>
     <br>
-    <input type="radio" name="isAlumni" id="isAlumni" value="false">
+    <input type="radio" name="isAlumni" id="isAlumni" value="true">
     <label for="isAlumni">
         Alumni
     </label>
-    <input type="radio" name="isStudent" id="isStudent" value="false">
+    <input type="radio" name="isStudent" id="isStudent" value="true">
     <label for="isStudent">
         Student
     </label>
-    <input type="radio" name="isCompany" id="isCompany" value="false">
+    <input type="radio" name="isCompany" id="isCompany" value="true">
     <label for="isCompany">
         Company
     </label>
     <br>
-    <input type="radio" name="isFaculty" id="isFaculty" value="false">
+    <input type="radio" name="isFaculty" id="isFaculty" value="true">
     <label for="isFaculty">
         Faculty
     </label>
@@ -137,70 +137,24 @@ if ($conn -> connect_error){
     echo "Connection error";
     die("Connection failed". $conn -> connect_error);
 }
-//Variables for sql insert
-$email = $_POST['eml'];
-$password = $_POST['psswd'];
-$username = $_POST['usrnm'];
-$userBio = $_POST['bio'];
-echo "This is post sql variable";
-//Checks if form is submitted (not necessary)
-// if(isset($_POST['submit'])){
-//     //Turns radio values into booleans to use later
-    
-//     $isAlumni = $_POST['isAlumni'] = $_POST['isAlumni'] == 'true' ? true:false;
-//     $isStudent = $_POST['isStudent'] = $_POST['isStudent'] == 'true' ? true:false;
-//     $isCompany = $_POST['isCompany'] = $_POST['isCompany'] == 'true' ? true:false;
-//     $isFaculty = $_POST['isFaculty'] = $_POST['isFaculty'] == 'true' ? true:false;
 
-// }
-echo "This broke";
-/*
+
 
 $email = $_POST['eml'];
 $password = $_POST['psswd'];
 $isStudent = $_POST['isStudent'] == 'true' ? 1 : 0;
+$isAlumni = $_POST['isAlumni'] == 'true' ? 1 : 0;
+$isCompany = $_POST['isCompany'] == 'true' ? 1 : 0;
+$isFaculty = $_POST['isFaculty'] == 'true' ? 1 : 0;
 $username = $_POST['usrnm'];
 $userBio = $_POST['bio'];
 
-$sql = "INSERT INTO User (userEmail, userPassword, isStudent, userName, userBio) 
-        VALUES ('$email', '$password', $isStudent, '$username', '$userBio')";
 
+    
+    
+$sql = "INSERT INTO User (userName, userEmail, userPassword, userBio, isAlumni, isCompany, isStudent, isFaculty) 
+VALUES ('$username', '$email', '$password', '$userBio', $isAlumni, $isCompany, $isStudent, $isFaculty)";
 $result = mysqli_query($conn, $sql);
-
-if ($result) {
-    // row inserted successfully
-} else {
-    // error occurred
-}
-
-
-
-
-*/
-
-    //$sql = "INSERT INTO User (userEmail,userPassword,userBio) VALUES ($email,$password,$userBio)";
-    echo "WOMP";
-    echo "INSERT INTO User (userID,userName,userEmail,userPassword,userBio) VALUES (1,$email,$email,$password,$userBio)";
-    
-    $sql = "INSERT INTO User (userID,userName,userEmail,userPassword,userBio) VALUES (2,$email,$email,$password,$userBio)";
-    
-    $conn -> query($sql);
-    //$result =  $conn -> query($sql);
-    
-    echo "WOOP";
-    if($result){
-        //Creates session variable of new user after it is added to database
-        //Also has exceptions to help with debugging later
-        $_SESSION['user'] = new Users($username,$email,$password,$userBio,$isAlumni,$isStudent,$isCompany,$isFaculty);
-    }
-    else{
-        echo "Invalid value or other database conn error";
-        throw new Exception("Invalid value or other database issue");
-    }
-
-
-
-
 
 $conn -> close();
 ?>
