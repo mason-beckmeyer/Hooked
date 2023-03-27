@@ -60,14 +60,14 @@ session_start();
         Email:
     </label>
     <br>
-    <input name="eml" type="email" id="eml">
+    <input name="eml" type="text" id="eml">
     <br>
     
     <label for="psswd">
         Password:
     </label>
     <br>
-    <input name="psswd" type="password" id="psswd">
+    <input name="psswd" type="text" id="psswd">
     
     <br>
     <label for="usrnm">
@@ -154,23 +154,39 @@ echo "This is post sql variable";
 
 // }
 echo "This broke";
-//Sql query to check database if record exists
-// $sql = $conn -> query("SELECT userID,userEmail,userPassword,userBio,isAlumni,isCompany,isStudent,isFaculty FROM User WHERE userEmail = $email userPassword = $password");
-// echo "This is post sql query assignment";
-// if($sql){
-//     echo "First query works";
-// }
-// else{
-//     echo "First query error";
-// }
-//Add username field once database is fixed
-//Conditional that checks whether an account with the email and password exists
-//Executes exception if account already exists
-//If account does not exist row is inserted into table
+/*
 
-    $sql = "INSERT INTO User (userEmail,userPassword,userBio) VALUES ($email,$password,$userBio)";
+$email = $_POST['eml'];
+$password = $_POST['psswd'];
+$isStudent = $_POST['isStudent'] == 'true' ? 1 : 0;
+$username = $_POST['usrnm'];
+$userBio = $_POST['bio'];
+
+$sql = "INSERT INTO User (userEmail, userPassword, isStudent, userName, userBio) 
+        VALUES ('$email', '$password', $isStudent, '$username', '$userBio')";
+
+$result = mysqli_query($conn, $sql);
+
+if ($result) {
+    // row inserted successfully
+} else {
+    // error occurred
+}
+
+
+
+
+*/
+
+    //$sql = "INSERT INTO User (userEmail,userPassword,userBio) VALUES ($email,$password,$userBio)";
     echo "WOMP";
-    $result = $conn -> query($sql);
+    echo "INSERT INTO User (userID,userName,userEmail,userPassword,userBio) VALUES (1,$email,$email,$password,$userBio)";
+    
+    $sql = "INSERT INTO User (userID,userName,userEmail,userPassword,userBio) VALUES (2,$email,$email,$password,$userBio)";
+    
+    $conn -> query($sql);
+    //$result =  $conn -> query($sql);
+    
     echo "WOOP";
     if($result){
         //Creates session variable of new user after it is added to database
