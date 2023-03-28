@@ -23,7 +23,7 @@ session_start();
                                 <div id="logo"> </div>
 </header>
 
-<nav>
+<!-- <nav>
     
 	<ul>
        
@@ -41,7 +41,7 @@ session_start();
 
 	
 
-</nav>
+</nav> -->
 <main>
 <header>
 	
