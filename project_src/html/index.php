@@ -118,8 +118,8 @@ if (!$conn) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    $email = $_POST["eml"];
+    $password = $_POST["psswd"];
 
     // Check if email and password match with database
     $sql = "SELECT * FROM User WHERE userEmail='$email' AND userPassword='$password' LIMIT 1";
@@ -129,14 +129,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mysqli_num_rows($result) == 1) {
         // Login successful
         $user = mysqli_fetch_assoc($result);
-        echo $user["userID"]."Please work";
+        
 
         // Store user data in session
         $_SESSION["user"] = $user;
-        echo count($user);
+        
         // Redirect to homepage or dashboard
-        //header("Location: design.php");
-        //exit();
+        header("Location: design.php");
+        exit();
     } else {
         // Login failed
         $login_error = "Invalid email or password";

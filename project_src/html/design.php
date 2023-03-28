@@ -50,25 +50,16 @@
 
 <main>
     <br><br>
-<table>
-		<tr>
-		<th><a href="fall2021.html">Salam Lawal</a>
-			<p>BIO: <?php  echo $user;?></p></th>
-		<th><a href="spring2022.html"></a>
-			<p></p></th>
-	</tr>
-	<tr>
-	<td><div id="logo"></div></td>
-	<td><div id="comingsoon"></div></td>
-</tr>
-
-
-	</table>
+	<h1>User Profile</h1>
+	<div>
+		<h2>User Information</h2>
+		<p><strong>Name:</strong><?php echo $_SESSION['user']['userName']; ?></p>
+		<p><strong>Email:</strong> <?php echo $_SESSION['user']['userEmail']; ?></p>
+		<p><strong>Bio:</strong> <?php echo $_SESSION['user']['userBio']; ?></p>
+	</div>
 	<?php 
-	echo "BAKLDJLJDLJ";
-	if (empty($user)){
-		echo "This is empty";
-	}
+	
+	
 	?>
 
 
