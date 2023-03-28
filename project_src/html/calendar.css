@@ -40,7 +40,7 @@
 }
 .calendar .days .day_num span {
     display: inline-flex;
-    width: 30px;
+    width: 20px;
     font-size: 14px;
 }
 .calendar .days .day_num .event {
