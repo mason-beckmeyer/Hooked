@@ -1,9 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Hooked</title>
+<link href="Hooked.css" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Welcome to Hooked">
+</head>
+
+<body>
+
+<header>
+	<!-- <h1><a href="index.html"> H∞ked
+								</a></h1> -->
+<div id="logo"></div>
+</header>
+
+<nav>
+    
+	<ul>
+
+        
+		
+
+        
+		<li>
+            <a href="index.php">Home</a></li>
+
+	
+		<li><a href="calendar.php">Calendar</a></li>
+		<li><a href="login.php">Feed</a></li>
+		<li><a href="contact.php">Messaging</a></li>
+		<li><a href="design.php">Account</a></li>
+        
+        
+	</ul>
+
+
+			
+
+	
+
+</nav>
+<main>
 <?php
 include 'classCalendar.php';
 $calendar = new Calendar('2021-02-02');
-$calendar->add_event('Birthday', '2021-02-03', 1, 'green');
-$calendar->add_event('Doctors', '2021-02-04', 1, 'red');
-$calendar->add_event('Holiday', '2021-02-16', 7);
+$calendar->add_event('Pizza My Mind', '2021-02-03', 1, 'green');
+$calendar->add_event('Resume Workshop', '2021-02-04', 1, 'red');
+$calendar->add_event('Spring Break', '2021-02-16', 7);
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,9 +62,9 @@ $calendar->add_event('Holiday', '2021-02-16', 7);
 	</head>
 	<body>
 	    <nav class="navtop">
-	    	<div>
-	    		<h1>Event Calendar</h1>
-	    	</div>
+	    	<!-- <div>
+	    		<h2>Event Calendar</h2>
+	    	</div> -->
 	    </nav>
 		<div class="content home">
 			<?=$calendar?>
