@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `hooked_db`.`Post` (
   INDEX `fk_Followee_User2_idx` (`followeeID` ASC) ,
   CONSTRAINT `fk_Followee_User1`
     FOREIGN KEY (`followerID`)
-    REFERENCES `hooked_db`.`User` (`userID`)
+    REFERENCES `hooked_db`.`User` (`userID`),
   CONSTRAINT `fk_Followee_User2`
     FOREIGN KEY (`followeeID`)
     REFERENCES `hooked_db`.`User` (`userID`)
