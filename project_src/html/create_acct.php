@@ -156,6 +156,18 @@ $sql = "INSERT INTO User (userName, userEmail, userPassword, userBio, isAlumni, 
 VALUES ('$username', '$email', '$password', '$userBio', $isAlumni, $isCompany, $isStudent, $isFaculty)";
 $result = mysqli_query($conn, $sql);
 
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $sql = "SELECT * FROM User WHERE userEmail='$email' AND userPassword='$password' LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    $user = mysqli_fetch_assoc($result);
+    $_SESSION["user"] = $user;
+        
+    // Redirect to homepage or dashboard
+    header("Location: design.php");
+    exit();
+}
 $conn -> close();
 ?>
 
