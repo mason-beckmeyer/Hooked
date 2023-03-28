@@ -62,11 +62,11 @@ $calendar->add_event('Spring Break', '2021-02-16', 7);
   
 	</head>
 	<body>
-	    <nav class="navtop">
-	    	<!-- <div>
+	    <!-- <nav class="navtop">
+	    	<div>
 	    		<h2>Event Calendar</h2>
-	    	</div> -->
-	    </nav>
+	    	</div>
+	    </nav> -->
 		<div class="content home">
 			<?=$calendar?>
 		</div>
