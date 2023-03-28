@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$user = $_SESSION['user'];
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +53,7 @@
 <table>
 		<tr>
 		<th><a href="fall2021.html">Salam Lawal</a>
-			<p>BIO: <?php echo $user; ?></p></th>
+			<p>BIO: <?php  echo $user;?></p></th>
 		<th><a href="spring2022.html"></a>
 			<p></p></th>
 	</tr>
@@ -64,7 +64,12 @@
 
 
 	</table>
-
+	<?php 
+	echo "BAKLDJLJDLJ";
+	if (empty($user)){
+		echo "This is empty";
+	}
+	?>
 
 
 
