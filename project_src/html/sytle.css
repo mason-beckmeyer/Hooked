@@ -57,15 +57,3 @@ body {
     color: #666666;
 }
 
-@media (max-width: 600px)
-{nav ul {display: flex;
-		flex-flow: column;
-		padding-top: 1em;}
-}
-
-@media (min-width: 600px)
-{nav li:hover ul {display: block;
-				color: gold;
-				font-size: 1.1em;
-
-				}}

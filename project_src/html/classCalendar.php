@@ -34,6 +34,9 @@ class Calendar {
                 </div>
             ';
         }
+        
+        
+
         for ($i = $first_day_of_week; $i > 0; $i--) {
             $html .= '
                 <div class="day_num ignore">
