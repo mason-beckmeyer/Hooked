@@ -47,7 +47,8 @@
 <?php
 include 'classCalendar.php';
 $calendar = new Calendar('2021-02-02');
-$calendar->add_event('Pizza My Mind', '2021-02-03', 1, 'green');
+
+echo $calendar->add_event('Pizza My Mind', '2021-02-03', 1, 'green');
 $calendar->add_event('Resume Workshop', '2021-02-04', 1, 'red');
 $calendar->add_event('Spring Break', '2021-02-16', 7);
 ?>
@@ -61,11 +62,11 @@ $calendar->add_event('Spring Break', '2021-02-16', 7);
   
 	</head>
 	<body>
-	    <nav class="navtop">
-	    	<!-- <div>
+	    <!-- <nav class="navtop">
+	    	<div>
 	    		<h2>Event Calendar</h2>
-	    	</div> -->
-	    </nav>
+	    	</div>
+	    </nav> -->
 		<div class="content home">
 			<?=$calendar?>
 		</div>
