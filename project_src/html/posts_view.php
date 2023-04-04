@@ -50,10 +50,12 @@
 
 <main>
     <br><br>
-	<h1>User Profile</h1>
+	<h1>Posts</h1>
 	
+<?php
 
-    $sql = "SELECT * FROM Post INNER JOIN User ON Post.User_userID=User.userID ORDER BY dateOfPost DESC";
+?>
+    //$sql = "SELECT * FROM Post INNER JOIN User ON Post.User_userID=User.userID ORDER BY dateOfPost DESC";
 
 </div>
 
