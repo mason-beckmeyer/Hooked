@@ -150,7 +150,7 @@ $username = $_POST['usrnm'];
 $userBio = $_POST['bio'];
 
 
-    
+
     
 $sql = "INSERT INTO User (userName, userEmail, userPassword, userBio, isAlumni, isCompany, isStudent, isFaculty) 
 VALUES ('$username', '$email', '$password', '$userBio', $isAlumni, $isCompany, $isStudent, $isFaculty)";
