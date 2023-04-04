@@ -56,20 +56,108 @@
 		<p><strong>Name:</strong><?php echo $_SESSION['user']['userName']; ?></p>
 		<p><strong>Email:</strong> <?php echo $_SESSION['user']['userEmail']; ?></p>
 		<p><strong>Bio:</strong> <?php echo $_SESSION['user']['userBio']; ?></p>
+		<p><strong>ID:</strong> <?php echo $_SESSION['user']['userID']; ?></p>
 	</div>
-	<?php 
+	<div>
+		<h1>
+			My Posts
+		</h1>
+		 <?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$hooked_db = "hooked_db";
+		
+		$conn = mysqli_connect($servername,$username,$password,$hooked_db);
+		
+		
+		if ($conn -> connect_error){
+			echo "Connection error";
+			die("Connection failed". $conn -> connect_error);
+		}
+
+		$userID = $_SESSION['user']['userID'];
+		$sql = "SELECT * FROM Post WHERE User_userID = $userID";
+		$result = mysqli_query($conn, $sql);
+		
+		
+		if($result){
+			while ($row = mysqli_fetch_assoc($result)) {
+			echo "<div>";
+			echo "<p>" . $row['postText'] . "</p>";
+			if ($row['postPicURL'] != null) {
+				echo "<p'" . $row['postPicURL'] . "'>";
+			}
+			echo "<p>" . $row['dateOfPost'] . "</p>";
+			echo "</div>";
+		}
+		}
+		
+
+		?>
 	
-	
-	?>
-
-
-
+	<h2>
+		Create Post:
+	</h2>
+	<form method="post">
+		<label for="body">
+			Post Text:
+		</label>
+		<br>
+		<input type="text" id="body" name="body">
+		
+		<br>
+		<label for="pic">
+			Picture: 
+		</label>
+		<br>
+		<input type="text" id="pic" name="pic">
+		<br>
+		<input type="submit" name="submit" id="submit">
+	</form>
+	</div>
 </div>
 
+
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$hooked_db = "hooked_db";
+
+$conn = mysqli_connect($servername,$username,$password,$hooked_db);
+
+
+if ($conn -> connect_error){
+    echo "Connection error";
+    die("Connection failed". $conn -> connect_error);
+}
+$user_id = $_SESSION['user']['userID'];
+$post_text = $_POST['body'];
+$pic = $_POST['pic'];
+
+
+$sql = "INSERT INTO Post (postText, postPicURL, dateOfPost, User_userID) VALUES ('$post_text', '$pic', NOW(), '$user_id')";
+
+$result = mysqli_query($conn,$sql);
+
+
+
+
+
+?>
 <br><br><br><br><br><br>
 </main>
+
 
 <footer>Copyright &copy; 2023 Hooked<br>
 <a href="Hooked@gmail.com">Hooked@gmail.com</a>
 </footer>
 </body>
+
+
+
+
+
+
+
