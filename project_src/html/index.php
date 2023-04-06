@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["user"] = $user;
         
         // Redirect to homepage or dashboard
-        header("Location: design.php");
+        header("Location: design.php?id=".$_SESSION["user"]['userID']);
         exit();
     } else {
         // Login failed
