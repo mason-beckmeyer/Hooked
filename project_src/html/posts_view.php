@@ -34,7 +34,7 @@
 
 	
 		<li><a href="calendar.php">Calendar</a></li>
-		<li><a href="login.php">Feed</a></li>
+		<li><a href="posts_view.php">Feed</a></li>
 		<li><a href="contact.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
         
@@ -53,9 +53,35 @@
 	<h1>Posts</h1>
 	
 <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "hooked_db";
 
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Retrieve 20 most recent posts
+$sql = "SELECT User.userName, Post.postText, Post.postPicURL, Post.dateOfPost FROM User INNER JOIN Post ON User.userID = Post.User_userID ORDER BY dateOfPost DESC LIMIT 20";
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+	while($row = mysqli_fetch_assoc($result)) {
+	  echo "<p><b>" . $row["userName"]. "</b> - " . $row["postText"]. "<br>";
+	  if (!empty($row["postPicURL"])) {
+		  echo "<img src='" . $row["postPicURL"] . "'><br>";
+	  }
+	  echo "Posted on " . $row["dateOfPost"] . "</p>";
+	}
+  } else {
+	echo "No posts to display.";
+  }
+  mysqli_close($conn);
 ?>
-    //$sql = "SELECT * FROM Post INNER JOIN User ON Post.User_userID=User.userID ORDER BY dateOfPost DESC";
 
 </div>
 

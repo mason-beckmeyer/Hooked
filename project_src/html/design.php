@@ -34,7 +34,7 @@
 
 	
 		<li><a href="calendar.php">Calendar</a></li>
-		<li><a href="login.php">Feed</a></li>
+		<li><a href="posts_view.php">Feed</a></li>
 		<li><a href="contact.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
         
@@ -138,8 +138,11 @@ $pic = $_POST['pic'];
 
 
 $sql = "INSERT INTO Post (postText, postPicURL, dateOfPost, User_userID) VALUES ('$post_text', '$pic', NOW(), '$user_id')";
+if($post_text != null){
+	$result = mysqli_query($conn,$sql);
+	header("Refresh:0");
+}
 
-$result = mysqli_query($conn,$sql);
 
 
 
