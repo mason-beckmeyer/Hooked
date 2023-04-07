@@ -1,8 +1,9 @@
 # Hooked
 Contains the following files:
--Assets
+
+- Assets
   - Logos and other pictures
--Program folders (html)
+- Program folders (html)
   - Calendar
      - calendar.css
      - calendar.php
