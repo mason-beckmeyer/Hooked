@@ -33,9 +33,9 @@
             <a href="index.php">Home</a></li>
 
 	
-		<li><a href="calendar.php">Calendar</a></li>
+            <li><a href="calendar.php">Calendar</a></li>
 		<li><a href="posts_view.php">Feed</a></li>
-		<li><a href="contact.php">Messaging</a></li>
+		<li><a href="messaging.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
         <li><a href="search.php">Search</a></li>
         

@@ -35,7 +35,7 @@
 	
 			<li><a href="calendar.php">Calendar</a></li>
 		<li><a href="posts_view.php">Feed</a></li>
-		<li><a href="contact.php">Messaging</a></li>
+		<li><a href="messaging.php">Messaging</a></li>
 		<li><a href="design.php">Account</a></li>
         <li><a href="search.php">Search</a></li>
         
@@ -52,16 +52,64 @@
 <main>
     <br><br>
 	<h1>User Profile</h1>
-	<div>
-		<h2>User Information</h2>
-		<p><strong>Name:</strong><?php echo $_SESSION['user']['userName']; ?></p>
-		<p><strong>Email:</strong> <?php echo $_SESSION['user']['userEmail']; ?></p>
-		<p><strong>Bio:</strong> <?php echo $_SESSION['user']['userBio']; ?></p>
-		<p><strong>ID:</strong> <?php echo $_SESSION['user']['userID']; ?></p>
-	</div>
-	<div>
+
+    <?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$hooked_db = "hooked_db";
+
+$conn = mysqli_connect($servername,$username,$password,$hooked_db);
+
+
+if ($conn -> connect_error){
+    echo "Connection error";
+    die("Connection failed". $conn -> connect_error);
+}
+if (isset($_GET['id'])) {
+    // Get user ID from URL parameter
+    $userID = $_GET['id'];
+
+
+
+
+$sql = "SELECT * FROM User WHERE userID=" . $userID;
+$result = mysqli_query($conn, $sql);
+
+
+if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_assoc($result);
+    echo "<h1>" . $row["userName"] . "</h1>";
+    echo "<p>" . $row["userBio"] . "</p>";
+    if ($row["isStudent"]) {
+        echo "<p>Student</p>";
+    }
+    if ($row["isFaculty"]) {
+        echo "<p>Faculty</p>";
+    }
+    if ($row["isAlumni"]) {
+        echo "<p>Alumni</p>";
+    }
+    if ($row["isCompany"]) {
+        echo "<p>Company</p>";
+    }
+} else {
+    echo "<p>User not found.</p>";
+}
+mysqli_close($conn);
+} else {
+echo "<p>No user selected.</p>";
+}
+
+
+
+
+
+
+?>
+	
 		<h1>
-			My Posts
+			Posts
 		</h1>
 		 <?php
 		$servername = "localhost";
@@ -77,8 +125,8 @@
 			die("Connection failed". $conn -> connect_error);
 		}
 
-		//$userID = $_SESSION['user']['userID'];
-		$userID = $_SESSION['user']['userID'];
+		
+		$userID = $_GET['id'];
 		$sql = "SELECT * FROM Post WHERE User_userID = $userID";
 		$result = mysqli_query($conn, $sql);
 		
@@ -98,59 +146,12 @@
 
 		?>
 	
-	<h2>
-		Create Post:
-	</h2>
-	<form method="post">
-		<label for="body">
-			Post Text:
-		</label>
-		<br>
-		<input type="text" id="body" name="body">
-		
-		<br>
-		<label for="pic">
-			Picture: 
-		</label>
-		<br>
-		<input type="text" id="pic" name="pic">
-		<br>
-		<input type="submit" name="submit" id="submit">
-	</form>
+	
 	</div>
 </div>
 
 
-<?php 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$hooked_db = "hooked_db";
 
-$conn = mysqli_connect($servername,$username,$password,$hooked_db);
-
-
-if ($conn -> connect_error){
-    echo "Connection error";
-    die("Connection failed". $conn -> connect_error);
-}
-$user_id = $_SESSION['user']['userID'];
-$post_text = $_POST['body'];
-$pic = $_POST['pic'];
-
-
-$sql = "INSERT INTO Post (postText, postPicURL, dateOfPost, User_userID) VALUES ('$post_text', '$pic', NOW(), '$user_id')";
-if($post_text != null){
-	$result = mysqli_query($conn,$sql);
-	header("Refresh:0");
-}
-
-
-
-
-
-
-?>
 <br><br><br><br><br><br>
 </main>
 
