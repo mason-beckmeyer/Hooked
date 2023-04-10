@@ -44,7 +44,9 @@ nav a {text-decoration: none;
 		color: blue;
 		/* text-align: center; */
 		display: flex;
-		align-items: center;
+		/* align-items: center; */
+		margin: auto;
+		
 		
 
 	
@@ -91,11 +93,7 @@ footer { font-size: small;
 }
 
 
-#logo {background: white url(assets/hookedlogo.jpeg) no-repeat;
-	
-	
-	
-		
+#logo {background: white url(hookedlogo.jpeg) no-repeat;
 			
 			height: 100px;
 			width: 350px;
