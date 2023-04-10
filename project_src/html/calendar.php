@@ -1,3 +1,8 @@
+<?php
+//Session start
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,11 +52,11 @@
 <main>
 <?php
 include 'classCalendar.php';
-$calendar = new Calendar('2021-02-02');
+$calendar = new Calendar('2023-04-10');
 
-$calendar->add_event('Pizza My Mind', '2021-02-03', 1, 'green');
-$calendar->add_event('Resume Workshop', '2021-02-04', 1, 'red');
-$calendar->add_event('Spring Break', '2021-02-16', 7);
+$calendar->add_event('April fools day', '2023-04-01', 1, 'green');
+$calendar->add_event($_POST['name'],$_POST['date'],$_POST['nums'],$_POST['color']);
+//header("Refresh:0");
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,6 +75,33 @@ $calendar->add_event('Spring Break', '2021-02-16', 7);
 	    </nav> -->
 		<div class="content home">
 			<?=$calendar?>
+		</div>
+		<div>
+			<form method = "post">
+				<label for="name">
+					Event Name:
+				</label>
+				<input name="name" id="name" type="text">
+				<br>
+				<label for = "date">
+					Date (ex: year-month-day):
+				</label>
+				<input type="text" id="date" name="date">
+				<br>
+				<label for = "nums">
+					Number of days event occurs:
+				</label>
+				<input type="number" id="nums"name="nums">
+				<br>
+				<label for = "color">
+					Color:
+				</label>
+				<input type="text" id ="color"name="color">
+				<br>
+				<input type="submit" name="submit" id="submit" value="Submit">
+
+			</form>
+			
 		</div>
 	</body>
 </html>
