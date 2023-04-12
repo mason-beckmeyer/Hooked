@@ -1,0 +1,144 @@
+h1 {color: #006400;
+	font-size: 300%;
+	text-align: center;
+	padding: 0;}
+
+table a {color: red;
+	font-size: 200%;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;}
+
+h4 {color: green;
+		font-size: 110%;
+		padding: 0;}
+
+h2  {color: blue;
+	font-size: 200%;
+	padding: 0;
+	text-align: center;}
+
+
+
+h5 {color: red;
+	font-size: 200%;
+	padding: 0;}
+
+h6{color: green;
+		font-size: 250%;
+		padding: 0;
+		text-align: center;}
+
+nav ul 	{display: flex; flex-flow:row nowrap;
+		justify-content: space-around;
+		list-style-type: none;
+		font-size: 1.5em;
+		
+		}
+nav ul li {text-decoration: none;
+		color: gold;
+		text-align: center;
+		}
+
+nav a {text-decoration: none;
+		color: blue;
+		/* text-align: center; */
+		display: flex;
+		/* align-items: center; */
+		margin: auto;
+	
+
+	}
+nav ul {background-color: silver;}
+
+
+
+nav li {display: flex;}
+nav ul ul {position: absolute;
+			padding: 0;
+			display: none;
+		
+			}
+nav ul ul li a {display: block;
+				border-bottom: 1px solid #000000;
+				
+				
+
+				}
+
+
+header a {color: blue;
+		text-decoration: none;
+		}
+
+nav {background-color: silver;
+		
+		}
+
+
+footer { font-size: small;
+	   text-align: center;
+	   font-style: italic;
+}
+
+
+.dropdown-menu {
+   position: relative;
+   display: inline-block;
+}
+
+
+#logo {background: white url(hookedlogo.jpeg) no-repeat;
+			
+			height: 100px;
+			width: 350px;
+			/*border:  5px solid blue;*/
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-size: 100% 110%;
+			margin: 1em;
+			margin-left: auto;
+			margin-right: auto;
+
+
+}
+
+#wallpaper {background: white url(flowywallpaper.jpeg) no-repeat;
+	height: 100px;
+	width: 350px;
+	
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: 100% 110%;
+	
+	margin-left: auto;
+	margin-right: auto;}
+
+
+p {text-align: center;}
+table {margin: auto;}
+
+
+
+#tablefont {font-size: 150%;
+			text-align: center;}
+
+video, iframe {display: block;
+				margin: auto;}
+
+table td {font-size: 150%;
+			color:  green;}
+
+
+@media (max-width: 600px)
+{nav ul {display: flex;
+		flex-flow: column;
+		padding-top: 1em;}
+}
+
+@media (min-width: 600px)
+{nav li:hover ul {display: block;
+				color: gold;
+				font-size: 1.1em;
+
+				}}
