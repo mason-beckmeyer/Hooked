@@ -51,14 +51,16 @@
 
 <main>
     <br><br>
-	<h1>User Profile</h1>
+
 	<div>
     <h1>Send Message</h1>
     <form  method="post">
       <label for="to_user">To:</label>
+      <br>
       <input type="text" name="to_user" id="to_user">
       <br>
       <label for="message_contents">Message:</label>
+      <br>
       <textarea name="message_contents" id="message_contents"></textarea>
       <br>
       <input type="submit" value="Send">

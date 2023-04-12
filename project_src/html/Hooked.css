@@ -1,149 +1,215 @@
-h1 {color: #006400;
+h1 {
+	color: #000080;
 	font-size: 300%;
 	text-align: center;
-	padding: 0;}
-
-table a {color: red;
+	padding: 0;
+  }
+  
+  table a {
+	color: red;
 	font-size: 200%;
 	padding: 0;
 	text-align: center;
-	text-decoration: none;}
-
-h4 {color: green;
-		font-size: 110%;
-		padding: 0;}
-
-h2  {color: blue;
+	text-decoration: none;
+  }
+  
+  h4 {
+	color: #008080;
+	font-size: 110%;
+	padding: 0;
+  }
+  
+  h2 {
+	color: #0000FF;
 	font-size: 200%;
 	padding: 0;
-	text-align: center;}
-
-
-
-h5 {color: red;
+	text-align: center;
+  }
+  
+  h5 {
+	color: red;
 	font-size: 200%;
-	padding: 0;}
-
-h6{color: green;
-		font-size: 250%;
-		padding: 0;
-		text-align: center;}
-
-nav ul 	{display: flex; flex-flow:row nowrap;
-		justify-content: space-around;
-		list-style-type: none;
-		font-size: 1.5em;
-		
-		}
-nav ul li {text-decoration: none;
-		color: gold;
-		text-align: center;
-		}
-
-nav a {text-decoration: none;
-		color: blue;
-		/* text-align: center; */
-		display: flex;
-		/* align-items: center; */
-		margin: auto;
-		
-		
-
-	
-	
-	
-
-	}
-nav ul {background-color: silver;}
-
-
-
-nav li {display: flex;}
-nav ul ul {position: absolute;
-			padding: 0;
-			display: none;
-		
-			}
-nav ul ul li a {display: block;
-				border-bottom: 1px solid #000000;
-				
-				
-
-				}
-
-
-header a {color: blue;
-		text-decoration: none;
-		}
-
-nav {background-color: silver;
-		
-		}
-
-
-footer { font-size: small;
-	   text-align: center;
-	   font-style: italic;
-}
-
-
-.dropdown-menu {
-   position: relative;
-   display: inline-block;
-}
-
-
-#logo {background: white url(hookedlogo.jpeg) no-repeat;
-			
-			height: 100px;
-			width: 350px;
-			/*border:  5px solid blue;*/
-			overflow: hidden;
-			background-repeat: no-repeat;
-			background-size: 100% 110%;
-			margin: 1em;
-			margin-left: auto;
-			margin-right: auto;
-
-
-}
-
-#wallpaper {background: white url(flowywallpaper.jpeg) no-repeat;
+	padding: 0;
+  }
+  
+  h6 {
+	color: #008080;
+	font-size: 250%;
+	padding: 0;
+	text-align: center;
+  }
+ 
+  
+  header a {
+	color: blue;
+	text-decoration: none;
+  }
+  
+  
+  footer {
+	font-size: small;
+	text-align: center;
+	font-style: italic;
+  }
+  
+  .dropdown-menu {
+	position: relative;
+	display: inline-block;
+  }
+  
+  #logo {
+	background: white url(hookedlogo.jpeg) no-repeat;
 	height: 100px;
 	width: 350px;
-	
 	overflow: hidden;
 	background-repeat: no-repeat;
 	background-size: 100% 110%;
-	
+	margin: 1em;
 	margin-left: auto;
-	margin-right: auto;}
+	margin-right: auto;
+  }
+  
+  #wallpaper {
+	background: white url(flowywallpaper.jpeg) no-repeat;
+	height: 100px;
+	width: 350px;
+	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: 100% 110%;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  p {
+	text-align: center;
+  }
+  
+  table {
+	margin: auto;
+  }
+  
+  #tablefont {
+	font-size: 150%;
+	text-align: center;
+  }
+  
+  video,
+  iframe {
+	display: block;
+	margin: auto;
+  }
+  
+  table td {
+	font-size: 150%;
+	color: blue;
+  }
+  
+  @media (max-width: 600px) {
+	nav ul {
+	  display: flex;
+	  flex-flow: column;
+	  padding-top: 1em;
+	}
+  }
+  
+  @media (min-width: 600px) {
+	nav li:hover ul {
+	  display: block;
+	  color: gold;
+	  font-size: 1.1em;
+	}
+  }
+  
+  nav {
+	background-color: #006699;
+	display: flex;
+	justify-content: center;
+  }
+  
+  nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+  }
+  
+  nav li {
+	margin: 0 10px;
+	position: relative;
+  }
+  
+  nav a {
+	display: flex;
+	align-items: center;
+	color: white;
+	text-decoration: none;
+	padding: 10px;
+  }
+  
+  nav a:hover {
+	background-color: #003366;
+  }
+  
+  nav ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	background-color: #006699;
+	width: 200px;
+  }
+  
+  nav ul ul li {
+	position: relative;
+  }
+  
+  nav ul ul li a {
+	display: block;
+	padding: 10px;
+	color: white;
+  }
+  
+  nav ul ul li a:hover {
+	background-color: #003366;
+  }
 
+  label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
-p {text-align: center;}
-table {margin: auto;}
+	height: 50px;
+	width: 200px;
+	text-align: center;
+	background-color: #006699;
+	color: white;
+	font-size: 24px;
+	margin: auto;
 
+  }
+  
+input {display: flex;
+	justify-content: center;
+	align-items: center;
 
-
-#tablefont {font-size: 150%;
-			text-align: center;}
-
-video, iframe {display: block;
-				margin: auto;}
-
-table td {font-size: 150%;
-			color:  green;}
-
-
-@media (max-width: 600px)
-{nav ul {display: flex;
-		flex-flow: column;
-		padding-top: 1em;}
+	height: 40px;
+	width: 200px;
+	text-align: center;
+	
+	
+	font-size: 24px;
+	margin: auto;
 }
 
-@media (min-width: 600px)
-{nav li:hover ul {display: block;
-				color: gold;
-				font-size: 1.1em;
+textarea {display: flex;
+	justify-content: center;
+	align-items: center;
 
-				}}
+	height: 30px;
+	width: 200px;
+	text-align: center;
+	
+	
+	font-size: 24px;
+	margin: auto;
+}
