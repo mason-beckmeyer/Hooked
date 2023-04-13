@@ -89,7 +89,7 @@ if (isset($_POST['search'])) {
     if (mysqli_num_rows($result) > 0) {
         echo "<h2>Search Results:</h2>";
         while($row = mysqli_fetch_assoc($result)) {
-            echo "<p><a href='other_accounts.php?id=" . $row["userID"] . "'>" . $row["userName"] ."</a><br>".$row['userBio']."</p>";
+            echo "<p><a href='other_accounts.php?userID=" . $row["userID"] . "'>" . $row["userName"] ."</a><br>".$row['userBio']."</p>";
         }
     } else {
         echo "<p>No results found.</p>";

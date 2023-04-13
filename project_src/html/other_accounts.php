@@ -66,9 +66,9 @@ if ($conn -> connect_error){
     echo "Connection error";
     die("Connection failed". $conn -> connect_error);
 }
-if (isset($_GET['id'])) {
+if (isset($_GET['userID'])) {
     // Get user ID from URL parameter
-    $userID = $_GET['id'];
+    $userID = $_GET['userID'];
 
 
 
@@ -126,7 +126,7 @@ echo "<p>No user selected.</p>";
 		}
 
 		
-		$userID = $_GET['id'];
+		$userID = $_GET['userID'];
 		$sql = "SELECT * FROM Post WHERE User_userID = $userID";
 		$result = mysqli_query($conn, $sql);
 		
