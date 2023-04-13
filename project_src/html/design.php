@@ -57,7 +57,7 @@
 		<p><strong>Name:</strong><?php echo $_SESSION['user']['userName']; ?></p>
 		<p><strong>Email:</strong> <?php echo $_SESSION['user']['userEmail']; ?></p>
 		<p><strong>Bio:</strong> <?php echo $_SESSION['user']['userBio']; ?></p>
-		<p><strong>ID:</strong> <?php echo $_SESSION['user']['userID']; ?></p>
+		<!--<p><strong>ID:</strong> <?php echo $_SESSION['user']['userID']; ?></p>-->
 	</div>
 	<div>
 		<h1>
