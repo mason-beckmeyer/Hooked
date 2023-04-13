@@ -72,11 +72,13 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)) {
+		echo "<div class = 'posts'>";
 	  echo "<p><b>" . $row["userName"]. "</b> - " . $row["postText"]. "<br>";
-	  if (!empty($row["postPicURL"])) {
-		  echo "<img src='" . $row["postPicURL"] . "'><br>";
-	  }
+	//   if (!empty($row["postPicURL"])) {
+	// 	  echo "<img src='" . $row["postPicURL"] . "'><br>";
+	//   }
 	  echo "Posted on " . $row["dateOfPost"] . "</p>";
+	  echo "</div>";
 	}
   } else {
 	echo "No posts to display.";

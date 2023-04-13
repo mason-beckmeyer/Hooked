@@ -85,11 +85,11 @@
 		
 		if($result){
 			while ($row = mysqli_fetch_assoc($result)) {
-			echo "<div>";
+			echo "<div class = 'posts'>";
 			echo "<p>" . $row['postText'] . "</p>";
-			if ($row['postPicURL'] != null) {
-				echo "<p'" . $row['postPicURL'] . "'>";
-			}
+			// if ($row['postPicURL'] != null) {
+			// 	echo "<p'" . $row['postPicURL'] . "'>";
+			// }
 			echo "<p>" . $row['dateOfPost'] . "</p>";
 			echo "</div>";
 		}
