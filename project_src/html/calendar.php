@@ -31,7 +31,7 @@ session_start();
 
         
 		<li>
-            <a href="index.php">Home</a></li>
+            <a href="index.php">Logout</a></li>
 
 	
 			<li><a href="calendar.php">Calendar</a></li>
