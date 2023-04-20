@@ -69,10 +69,10 @@ if (!$conn) {
 // Retrieve 20 most recent posts
 $sql = "SELECT User.userName, Post.postText, Post.postPicURL, Post.dateOfPost FROM User INNER JOIN Post ON User.userID = Post.User_userID ORDER BY dateOfPost DESC LIMIT 20";
 $result = mysqli_query($conn, $sql);
-
+//echo "<div class=posts>";
 if (mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)) {
-		echo "<div class=posts>";
+		echo "<div>";
 	  echo "<p><b>" . $row["userName"]. "</b> - " . $row["postText"]. "<br>";
 	
 	  echo "Posted on " . $row["dateOfPost"] . "</p>";
@@ -82,6 +82,7 @@ if (mysqli_num_rows($result) > 0) {
 	echo "No posts to display.";
   }
   mysqli_close($conn);
+  //echo "</div>";
 ?>
 
 </div>

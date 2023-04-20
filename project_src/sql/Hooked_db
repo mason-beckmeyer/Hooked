@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `hooked_db`.`Messages` (
   `senderID` INT NOT NULL,
   `receiverID` INT NOT NULL,
   `messageContents` VARCHAR(155) NULL,
-  `messageReceipt` DATETIME GENERATED ALWAYS AS (CURRENT_TIMESTAMP),
+  `messageReceipt` DATETIME DEFAULT NOW(),
   PRIMARY KEY (`messagesID`, `senderID`, `receiverID`),
   INDEX `fk_Messages_User1_idx` (`senderID` ASC) ,
   INDEX `fk_Messages_User2_idx` (`receiverID` ASC),

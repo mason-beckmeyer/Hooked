@@ -6,7 +6,7 @@ h1 {
   }
   
   table a {
-	color: red;
+	color: black;
 	font-size: 200%;
 	padding: 0;
 	text-align: center;
@@ -27,7 +27,7 @@ h1 {
   }
   
   h5 {
-	color: red;
+	color: black;
 	font-size: 200%;
 	padding: 0;
   }
@@ -213,4 +213,5 @@ textarea {display: flex;
 	font-size: 24px;
 	margin: auto;
 }
+
 
