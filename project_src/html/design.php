@@ -87,9 +87,7 @@
 			while ($row = mysqli_fetch_assoc($result)) {
 			echo "<div class = 'posts'>";
 			echo "<p>" . $row['postText'] . "</p>";
-			// if ($row['postPicURL'] != null) {
-			// 	echo "<p'" . $row['postPicURL'] . "'>";
-			// }
+			
 			echo "<p>" . $row['dateOfPost'] . "</p>";
 			echo "</div>";
 		}
@@ -108,12 +106,7 @@
 		<br>
 		<input type="text" id="body" name="body">
 		
-		<br>
-		<label for="pic">
-			Picture: 
-		</label>
-		<br>
-		<input type="text" id="pic" name="pic">
+		
 		<br>
 		<input type="submit" name="submit" id="submit">
 	</form>
