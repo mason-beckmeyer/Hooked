@@ -7,7 +7,7 @@
 <head>
 
 <title>Hooked</title>
-<link href="Hooked.css" rel="stylesheet">
+<link rel="stylesheet" href="Hooked.css" >
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Welcome to Hooked">
@@ -72,7 +72,7 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
 	while($row = mysqli_fetch_assoc($result)) {
-		echo "<div class = 'posts'>";
+		echo "<div class=posts>";
 	  echo "<p><b>" . $row["userName"]. "</b> - " . $row["postText"]. "<br>";
 	
 	  echo "Posted on " . $row["dateOfPost"] . "</p>";
