@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `hooked_db`.`Post` (
   `postID` INT NOT NULL AUTO_INCREMENT,
   `postText` VARCHAR(255) ,
   `postPicURL` VARCHAR(45) ,
-  `dateOfPost` DATETIME NOT NULL,
+  /*`dateOfPost` DATETIME NOT NULL,*/
   `User_userID` INT NOT NULL,
   PRIMARY KEY (`postID`, `User_userID`),
   UNIQUE INDEX `postPicURL_UNIQUE` (`postPicURL` ASC) ,

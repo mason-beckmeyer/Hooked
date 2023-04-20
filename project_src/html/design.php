@@ -129,10 +129,10 @@ if ($conn -> connect_error){
 }
 $user_id = $_SESSION['user']['userID'];
 $post_text = $_POST['body'];
-$pic = $_POST['pic'];
+$pic = "h";
 
 
-$sql = "INSERT INTO Post (postText, postPicURL, dateOfPost, User_userID) VALUES ('$post_text', '$pic', NOW(), '$user_id')";
+$sql = "INSERT INTO Post (postText, dateOfPost, User_userID) VALUES ('$post_text', NOW(), '$user_id')";
 if($post_text != null){
 	$result = mysqli_query($conn,$sql);
 	header("Refresh:0");

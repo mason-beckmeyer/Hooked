@@ -123,7 +123,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   $messageContents = $row['messageContents'];
   $messageReceipt = $row['messageReceipt'];
 
-  echo "<tr><td><a href='other_accounts.php?userID=$senderID'>$senderName</a></td><td>$messageContents</td><td>$messageReceipt</td></tr>";
+  echo "<tr><td><a href='other_accounts.php?userID=$senderID'>$senderName</a></td><td>  $messageContents  </td><td>$messageReceipt</td></tr>";
 }
 echo "</table>";
 // Close database connection
