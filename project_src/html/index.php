@@ -122,8 +122,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "SELECT * FROM User WHERE userEmail='$email' AND userPassword='$password' LIMIT 1";
     $result = mysqli_query($conn, $sql);
     
-
-    if (mysqli_num_rows($result) == 1) {
+    
+    if (mysqli_num_rows($result) == 1 && strlen($email) > 0 && strlen($password)>0) {
+        
         // Login successful
         $user = mysqli_fetch_assoc($result);
         
@@ -137,6 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Login failed
         $login_error = "Invalid email or password";
+        echo $login_error;
     }
 }
 
