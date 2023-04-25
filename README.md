@@ -13,7 +13,6 @@ Contains the following files:
      - index.php (login)
   - Messaging
      - messaging.php 
-     - (to be added)
   - Posting
      - posts_view.php
   - Search
@@ -25,4 +24,36 @@ Contains the following files:
      - Hooked_db
   - various_css
      - Hooked.css
-     - style.css
+
+Info for submission (Who did what):
+   - CSS
+      - backup.css (Salam/Ryan)
+      - calendar.css (Salam)
+      - Hooked.css (Salam/RC)
+   -PHP/HTML
+      - calendar.php (Salam) (Edits: Mason)
+      - classCalendar.php (Salam) (Edits: Mason)
+      - create_acct.php
+         - HTML : Mason/RC/Salam
+         - PHP : Mason
+      - design.php
+         - HTML : Salam/RC/Mason
+         - PHP : Mason
+      - index.php 
+         - HTML : Salam/RC/Mason
+         - PHP : Salam/RC/Mason
+      - messaging.php
+         - HTML : Mason
+         - PHP : Mason
+      - other_accounts.php
+         - HTML : Mason
+         - PHP : Mason
+      - posts_view.php
+         - HTML : Mason
+         - PHP : Mason
+      - search.php
+         - HTML : Mason
+         - PHP : Mason
+      - Hooked_db
+         - SQL : Blake Marcey
+
