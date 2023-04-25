@@ -46,3 +46,22 @@ CREATE TABLE IF NOT EXISTS `hooked_db`.`Messages` (
     REFERENCES `hooked_db`.`User` (`userID`)
 );
 
+INSERT INTO User (userID, userName, userEmail, userPassword, userBio, isAlumni, isCompany, isStudent, isFaculty) VALUES ('1', 'Blakemarcey', 'bmarcey@hooked.com', 'qwerty1234', 'CNU 24', '0', '0','1','0');
+INSERT INTO User (userID, userName, userEmail, userPassword, userBio, isAlumni, isCompany, isStudent, isFaculty) VALUES ('2', 'masonbeckmeyer', 'mbeckmeyer@hooked.com', 'river12', 'CNU 24', '1', '0','0','0');
+INSERT INTO User (userID, userName, userEmail, userPassword, userBio, isAlumni, isCompany, isStudent, isFaculty) VALUES ('3', 'salamlawal', 'slawal@hooked.com', 'dc374923', 'CNU 24', '0', '0','1','0');
+INSERT INTO User (userID, userName, userEmail, userPassword, userBio, isAlumni, isCompany, isStudent, isFaculty) VALUES ('4', 'ryancammarata', 'rc@hooked.com', 'lax64893', 'CNU 24', '0', '0','1','0');
+INSERT INTO User (userID, userName, userEmail, userPassword, userBio, isAlumni, isCompany, isStudent, isFaculty) VALUES ('5', 'Johnrahm', 'rahmbo@hooked.com', 'Eagle131', 'Callaway', '0', '1','0','0');
+
+INSERT INTO Messages(messagesID,senderID,receiverID,messageContents,messageReceipt) VALUES ('1','Blakemarcey','salamlawal','hello',);
+INSERT INTO Messages(messagesID,senderID,receiverID,messageContents,messageReceipt) VALUES ('2','Blakemarcey','Johnrahm','hello',);
+INSERT INTO Messages(messagesID,senderID,receiverID,messageContents,messageReceipt) VALUES ('3','Johnrahm','ryancammarata','hello',);
+INSERT INTO Messages(messagesID,senderID,receiverID,messageContents,messageReceipt) VALUES ('4','ryancammarata','salamlawal','hello',);
+INSERT INTO Messages(messagesID,senderID,receiverID,messageContents,messageReceipt) VALUES ('5','ryancammarata','salamlawal','hello',);
+
+INSERT INTO Post(postID, posttext, postPicURL) VALUES ('1','First post!', 'https://example.com/blood?act=air');
+INSERT INTO Post(postID, posttext, postPicURL) VALUES ('2','Looking for job!', '');
+INSERT INTO Post(postID, posttext, postPicURL) VALUES ('3','Just graduated!', '');
+INSERT INTO Post(postID, posttext, postPicURL) VALUES ('4','looking for work', '');
+INSERT INTO Post(postID, posttext, postPicURL) VALUES ('5','Internship secured!', '');
+
+
