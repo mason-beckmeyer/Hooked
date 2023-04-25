@@ -56,4 +56,12 @@ Info for submission (Who did what):
          - PHP : Mason
       - Hooked_db
          - SQL : Blake Marcey
+   
+   Info on what to do once downloaded (for Professor Lapke)
+   1. Either download files or fork and clone repo from github (https://github.com/mason-beckmeyer/Hooked)
+   2. Put files into htdocs
+   3. Navigate to /html file from local host
+   4. If website is not displayed select index.php (negate if previous step works)
+   5. In phpmyadmin create a database called "hooked_db"
+   6. Enter in the SQL 
 
